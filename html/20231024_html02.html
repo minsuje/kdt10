@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+
+<body>
+    <form>
+        <!-- input 태그 -->
+        <input type="button" value="버튼">
+        <input type="text" placeholder="ID" disabled value="ID값"> <!-- placeholder를 이용하여 입력하는 곳에 설명 -->
+        <input type="password" placeholder="PASSWORD">
+        <input type="checkbox" name="fruits" value="apple" checked>apple
+        <input type="checkbox" name="fruits" value="banana">banana
+
+        <!-- radio -->
+        <input type="radio" name="gender" value="man" checked>남자
+        <input type="radio" name="gender" value="woman">여자
+
+        <!-- date -->
+        <input type="datetime-local" name="calendar">
+
+        <!-- select 태그 -->
+        <select>
+            <optgroup label="커피">
+                <option value="americano">아메리카노</option>
+                <option value="latte" selected>카페라떼</option>
+                <option value="vanilla">바닐라라떼</option>
+            </optgroup>
+            <optgroup label="주스">
+                <option value="딸기">딸기</option>
+                <option value="바나나">바나나</option>
+                <option value="키위">키위</option>
+                <option value="안먹음" disabled>안먹음</option>
+                <!--disabled 메뉴에 보이지만 선택 불가-->
+            </optgroup>
+        </select>
+    </form>
+    
+    <hr>
+
+    <!-- table 태그 -->
+    <table border="1" cellspacing="0" cellpadding="5" width="300" height="100">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td colspan="2">minsu</td>
+            <td>01022222222</td>
+        </tr>
+        <tr>
+            <td rowspan="2">minsu</td>
+            <td>25</td>
+            <td>01022222222</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>01022222222</td>
+        </tr>
+    </table>
+</body>
+
+</html>

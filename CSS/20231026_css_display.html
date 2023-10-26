@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+
+    <style>
+        .inline{
+            background-color: yellow;
+            /* width: 100px; 사용 불가X */
+        }
+        .block{
+            background-color: orange;
+            width: 100px;
+        }
+        .inline-block{
+            display: inline-block;
+            background-color: red;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- inline & block -->
+    <span class="inline">Hello</span>
+    <span class="inline">World</span>
+
+    <div class="block"><div>Hello Block</div></div>
+    <span>span</span>
+    <div class="inline-block">World</div>
+</body>
+</html>

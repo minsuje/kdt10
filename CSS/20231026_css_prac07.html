@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box</title>
+    <style>
+        /* .html{
+            display: inline-block;
+            background-color: skyblue;
+            width: 200px;
+            height: 100px;
+        }
+        .box{
+            background-color: orange;
+            width: auto;
+            height: 200px;
+        }
+        .CSS{
+            display: inline-block;
+            background-color: green;
+            margin: 30px;
+            width: 200px;
+            height: 100px;
+
+        }
+        .Javascript{
+            display: inline-block;
+            background-color: red;
+            margin: 30px;
+            width: 200px;
+            height: 100px;
+        } */
+        .orange{
+            width: auto;
+            height: 200px;
+            background-color: orange;
+        }
+        .orange div:nth-child(n){
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            margin-right: 30px;
+        }
+        .orange div:nth-child(1){
+            background-color: skyblue;
+        }
+        .orange div:nth-child(2){
+            background-color: green;
+        }
+        .orange div:last-child{
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="orange">
+        <div>html</div>
+        <div>css</div>
+        <div>Javascript</div>
+    </div>
+    <!-- <div class="box">
+        <span class="html">html</span>
+        <span class="CSS">CSS</span>
+        <span class="Javascript">Javascript</span>
+    </div> -->
+</body>
+</html>

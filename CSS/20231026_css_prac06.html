@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box::before{
+            content: "택시";
+        }
+        .box::after{
+            content: "빨리 🚖";
+        }
+
+        [disabled] {
+            background-color: red;
+        }
+        [placeholder="이름"]{
+            background-color: orange;
+        }
+        input:not([placeholder]) {
+            background-color: blue;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="box">여기요!</div>
+    <hr>
+
+    <input type="text" placeholder="이름">
+    <input type="password" value="pw">
+    <input type="text" value="000-0000-0000">
+    <input type="text" placeholder="핸드폰">
+    <input type="text" placeholder="주민번호" disabled>
+</body>
+</html>

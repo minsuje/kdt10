@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <style>
+        /* 가상 클래스 */
+        /* hover : 마우스 커서 올렸을 때 */
+        a:hover {
+            color: white !important;
+            background-color: black;
+        }
+
+        /* active : 마우스 클릭하고 있는 동안 */
+        a:active {
+            background-color: red;
+        }
+
+        /* focus */
+        input:focus {
+            background-color: gray;
+        }
+
+        /* first-child */
+        .fruits span:first-child {
+            color: red;
+        }
+
+        /* div가 첫번째 자식요소가 아나기 때문에 선택x */
+        .fruits div:first-child {
+            color: violet;
+        }
+
+        /* last-child */
+        .fruits h3:last-child {
+            color: pink;
+        }
+
+        /* nth-child(n) */
+        .fruits *:nth-child(2) {
+            color: aqua;
+        }
+
+        /* nth-child(2n) */
+        .fruits *:nth-child(2n) {
+            /* n은 0부터 시작 */
+            background-color: yellow;
+        }
+
+        /* not */
+        .fruits *:not(span) {
+            background-color: lightblue;
+            color: blueviolet;
+        }
+        /* .fruits *:nth-child(2n+1){
+            text-decoration: line-through;
+        } */
+
+        /* 가상요소 선택자 */
+        /* before */
+        .fruits::before{
+            content: "🥑";
+        }
+        /* after */
+        .fruits::after{
+            content: "과일 목록 끝!";
+            /* content: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHpzuc%2Fbtqzx8iV4s4%2FyKk3MoxJOblGEzePrGbK20%2Fimg.jpg); */
+        }
+
+        /* 속성 선택자 */
+        [readonly]{
+            background-color: lightgray;
+        }
+        /* *:not([placeholder]){
+            background-color: blueviolet;
+        } */
+
+         /* CSS 선택자 우선순위 */
+         /* 마지막에 쓰인 것이 우선순위를 가지지만 !important가 쓰이면 그것이 좀더 우선순위가 높아진다 */
+         a:hover {
+            color: green;
+            background-color: black;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <a href="https://naver.com">Naver</a><br>
+    <input type="text">
+
+    <hr>
+
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>자식 오렌지
+            <!-- <div>하위오렌지 </div>   -->
+        </div>
+        <p>망고</p>
+        <h3>사과</h3>
+    </div>
+
+    <hr>
+
+    <input type="text">
+    <input type="text" readonly>
+    <input type="password" placeholder="PW">
+
+</body>
+
+</html>

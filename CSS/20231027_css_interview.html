@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS interview</title>
+
+    <style>
+        .box{
+            border-style: solid;
+            width: 50vw;
+            height: 55vh;
+            margin: calc((100vh - 55vh)/2) auto;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body style="margin: 0;">
+    <form>
+        <div class="box" style="background-color: lemonchiffon;">
+            이름<input type="text" style="border-radius: 5px; margin: 21px;"> <br>
+            이메일<input type="text" placeholder="love@exmaple.com" style="border-radius: 5px; margin: 10px;"><br>
+            <br>
+            <b>나이</b>
+            <br>
+            <br>
+            <input type="radio" name="age" value="10's" checked>10대
+            <input type="radio" name="age" value="20's">20대
+            <input type="radio" name="age" value="30's">30대
+            <input type="radio" name="age" value="40's">40대
+            <input type="radio" name="age" value="50's">50대
+            <input type="radio" name="age" value="over 60's">60대 이상
+            <br>
+            <br>
+            <b>원하는 강의(복수응답가능합니다.)</b>
+            <br>
+            <br>
+            <input type="checkbox" name="lecture" value="html" checked>html
+            <input type="checkbox" name="lecture" value="javascript">javascript
+            <input type="checkbox" name="lecture" value="css">css
+            <br>
+            <br>
+            <textarea style="resize: vertical; overflow: auto; border-radius: 5px; border-style: dashed; width: 40vw; height: 20vh; margin: 5px 5vw;" placeholder="하고 싶은 말을 써주세요" \></textarea>
+            <a href="./send.html"><input style="margin: 10px; float: right;" type="button" name="send" value="제출"></a>
+        </div>
+
+    </form>
+
+</body>
+
+</html>

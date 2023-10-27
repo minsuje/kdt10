@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* border */
+        .border{
+            /* border: 2px dotted red; */
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 2px 20px 2px 20px;
+        }
+        .mine{
+            margin: 30px;
+            border-width: 10px 2px 3px 15px;
+            border-style: dotted solid dashed double;
+            border-color: black orange lemonchiffon khaki;
+            width: 200px;
+            height: 200px;
+        }
+        .square{
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            display: inline-block;
+        }
+        .d-none{
+            display: none;
+            background-color: red;
+        }
+        .invisible:hover{
+            visibility: hidden;
+            background-color: orangered;
+        }
+        .opacity-0:focus{   
+            opacity: 0;
+            background-color: tomato;
+        }
+
+    </style>
+</head>
+<body style="margin: 0;">
+    <div style="background-color: aqua; width: 100px; height: 100px;"></div>
+
+    <div style="background-color: aquamarine; width: 100vw; height: 100px;"></div>
+
+    <div style="background-color: orange; width: calc(30vw - 100px); height: 30vh; min-width: 200px;"></div>
+
+    <hr>
+    <div class="border"></div>
+    <hr>
+    <div class="mine"></div>
+
+    <hr>
+
+    <!-- visibility -->
+    <div class="square">orginal</div>
+    <div class="square d-none">d-none</div>
+    <div class="square invisible">invisible</div>
+    <div class="square opacity-0">opacity-0</div>
+    <div class="square orginal">orginal</div>
+
+    <!-- overflow -->
+    <div class="square" style="overflow: scroll;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quae, asperiores blanditiis optio eveniet doloribus praesentium maiores, eos dolores quo dolorem nostrum labore amet sapiente commodi similique? Voluptatum, commodi nobis.
+        Vel blanditiis dolorum explicabo, velit eveniet fugit. Vel voluptatum, inventore beatae ipsum est quia fugit molestias, aut iure molestiae tenetur dolorem velit debitis cumque optio. Asperiores commodi beatae iure voluptatibus!
+    </div>
+    <div class="square" style="overflow: auto;">over flow Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quae, asperiores blanditiis optio eveniet doloribus praesentium maiores, eos dolores quo dolorem nostrum labore amet sapiente commodi similique? Voluptatum, commodi nobis.</div>
+</body>
+</html>

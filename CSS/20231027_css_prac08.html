@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 10vw;
+            height: 10vw;
+            background-color: aqua;
+            text-align: center;
+            /* 세로 중앙 정렬 */
+            line-height: 10vw;
+            margin: calc((100vh - 10vw)/2) auto; /* auto를 사용하면 브라우저에서 계산해서 가로 정렬 해줌*/
+            /* (100vh - 높이)/2 */
+        }
+        .box-sizing{
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border: 15px solid red;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+
+    <!-- <div style="background-color: blue; width: 10vw; height: 10vh; line-height: 10vh; margin: auto; margin-top: 40vh;">
+        KDT
+    </div> -->
+
+    <div class="one">
+        KDT
+    </div>
+
+    <!-- box sizing -->
+    <div class="box-sizing" style="box-sizing: content-box; opacity: 0.7;">content-box</div>
+    <div class="box-sizing" style="box-sizing: border-box;">border-box</div>
+    <!-- border-box가 작은 이유는 border-box는 테두리를 width,height로 잡고 content-box는 안에 내용물의 사이즈를 기준으로 잡았기 때문 -->
+</body>
+</html>

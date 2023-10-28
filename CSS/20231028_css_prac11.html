@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .circle1{
+            background-color: lightblue;
+            top: 0px;
+            left: 110px;
+            z-index: 1;
+        }
+        .circle2{
+            background-color: darkblue;
+            top: 30px;
+            left: 170px;
+            z-index: 2;
+        }
+        .circle3{
+            background-color: burlywood;
+            top: 80px;
+            left: 210px;
+            z-index: 3;
+        }
+        .circle4{
+            background-color: goldenrod;
+            top: 100px;
+            left: 270px;
+        }
+        .circle5{
+            background-color: palevioletred;
+            top: 100px;
+            left: 330px;
+        }
+        .eye1{
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            position: absolute;
+            left: 120px;
+            top: 12px;
+            z-index: 2;
+        }
+        .eye2{
+            background-color: black;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 120px;
+            top: 15px;
+            z-index: 3;
+        }
+        .box{
+            left: 100px;
+            top: 100px;
+            position: relative;
+        }
+        .imgbox{
+            left: 100px;
+            top: 80px;
+            position: relative;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="circle circle4"></div>
+        <div class="circle circle5"></div>
+        <div class="eye1"></div>
+        <div class="eye2"></div>
+
+        <!-- <div class="circle circle1">
+            <div class="eye1"></div>
+            <div class="eye2"></div>
+        </div> -->
+    </div>
+    <div class="imgbox">
+        <img src="\CSS\green-AnyEraser.png" alt="잔디">
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        .container {
+            background-color: green;
+            width: 500px;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            flex-direction: row-reverse;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            /* 자식들에게 값을 주기 위해서는 부모에게 적어야한다. */
+            flex-wrap: wrap;
+        }
+
+        .container>div {
+            width: 100px;
+            height: 100px;
+        }
+
+        .item1 {
+            background-color: red;
+        }
+
+        .item2 {
+            background-color: yellow;
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            display: flex;
+            border: 2px solid black;
+        }
+        .n1{
+            background-color: orange;
+            width: 50px;
+            height: 50px;
+        }
+        .n2{
+            background-color: pink;
+            width: 50px;
+            height: 50px;
+        }
+        .n3{
+            background-color: blueviolet;
+            width: 50px;
+            height: 50px;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            display: flex;
+            border: 2px solid black;
+            flex-direction: row-reverse;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            display: flex;
+            border: 2px solid black;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item1"></div>
+        <div class="item2"></div>
+    </div>
+    <hr>
+    <div class="box">
+        <div class="n1"></div>
+        <div class="n2"></div>
+        <div class="n3"></div>
+    </div>
+    <div class="box2">
+        <div class="n1"></div>
+        <div class="n2"></div>
+        <div class="n3"></div>
+    </div>
+    <div class="box3">
+        <div class="n1"></div>
+        <div class="n2"></div>
+        <div class="n3"></div>
+    </div>
+
+
+</body>
+
+</html>

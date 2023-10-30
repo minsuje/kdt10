@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+
+            transition-property: background-color;
+            transition-duration: 2s;
+            transition-timing-function: ease; /* default 값, 느리게-빠르게-느리게 */
+            transition-delay: 1s;
+        }
+        .box:hover{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+        .blackbox{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            color: white;
+            overflow-y: scroll;
+
+
+            /* 한번에 작성 가능 */
+            /* transition-property: width, height; */
+            transition: all 1s linear 0.5s;
+            /* transition-duration: 1s;
+            transition-timing-function: ease;
+            transition-delay: 0.5s; */
+            /* 여러개 사용할 경우 ","를 사용해서 구분한다. */
+        }
+        .blackbox:hover{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <hr>
+    <div class="blackbox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deleniti, corrupti id facere debitis inventore, assumenda delectus facilis, blanditiis natus eaque adipisci ducimus commodi sint consequatur nemo esse tempora quisquam.</div>
+</body>
+</html>

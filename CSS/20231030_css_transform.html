@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        .box {
+            /* display: flex; */
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: lightgray;
+        }
+
+        .img1 {
+            transform: skewY(25deg);
+            position: absolute;
+            top: 250px;
+            z-index: 2;
+            scale: 0.9;
+
+        }
+
+        .img2 {
+            transform: skewY(25deg);
+            position: absolute;
+            top: 250px;
+            left: 500px;
+            z-index: 1;
+            scale: 0.9;
+        }
+
+        .img3 {
+            transform: skewY(25deg);
+            position: absolute;
+            top: 250px;
+            left: 1000px;
+            scale: 0.9;
+        }
+
+        /* 연달아서 쓰면 두 개 이상의 요소를 적용 가능 */
+        /* .img4:hover{
+            transform: scale(2) skewY(25deg);
+            position: absolute;
+            top: 250px;
+            left: 1500px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>
+            <img class="img1"
+                src="https://static.wixstatic.com/media/72c0b2_b80b5e85e85f41e493c2bca2fc1d41cd~mv2.jpg/v1/fill/w_919,h_555,al_c,q_85,enc_auto/72c0b2_b80b5e85e85f41e493c2bca2fc1d41cd~mv2.jpg"
+                alt="사이트1">
+        </div>
+        <div>
+            <img class="img2"
+                src="https://static.wixstatic.com/media/72c0b2_b19fe29cb4074555aeb267ba033d4f38~mv2.jpg/v1/fill/w_919,h_555,al_c,q_85,enc_auto/72c0b2_b19fe29cb4074555aeb267ba033d4f38~mv2.jpg"
+                alt="사이트2">
+        </div>
+        <div>
+            <img class="img3"
+                src="https://static.wixstatic.com/media/72c0b2_f219059ddd384bdb9ce0f3e66f05ef83~mv2.jpg/v1/fill/w_919,h_555,al_c,q_85,enc_auto/72c0b2_f219059ddd384bdb9ce0f3e66f05ef83~mv2.jpg"
+                alt="사이트3">
+        </div>
+
+        <!-- <div>
+            <img class="img4"
+                src="https://static.wixstatic.com/media/72c0b2_f219059ddd384bdb9ce0f3e66f05ef83~mv2.jpg/v1/fill/w_919,h_555,al_c,q_85,enc_auto/72c0b2_f219059ddd384bdb9ce0f3e66f05ef83~mv2.jpg"
+                alt="사이트3">
+        </div> -->
+    </div>
+</body>
+
+</html>

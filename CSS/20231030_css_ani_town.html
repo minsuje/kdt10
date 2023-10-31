@@ -23,22 +23,24 @@
                 background-color: rgb(128, 195, 224);
             }
             15%{
-                background-color: rgb(25, 167, 228);
-            }
-            30%{
                 background-color: rgba(234, 168, 68, 0.875);
             }
-            45%{
+            30%{
                 background-color: rgb(247, 126, 27);
+
+            }
+            45%{
+                background-color: rgb(5, 50, 89);
+
             }
             60%{
-                background-color: rgb(20, 13, 147);
+                background-color: rgb(16, 4, 55);
             }
             75%{
-                background-color: rgb(5, 50, 89);
+                background-color: rgb(74, 100, 230);
             }
             100%{
-                background-color: rgb(16, 4, 55);
+                background-color: rgb(128, 195, 224);
             }
             
             
@@ -65,33 +67,30 @@
         }
         @keyframes sun  {
             0%{
-                transform: rotate(30deg);
-                background-color: rgb(128, 195, 224);
+                transform: rotate(0deg);
             }
             15%{
-                transform: rotat(60deg);
-                background-color: rgb(25, 167, 228);
+                opacity: 0.8;
+                transform: rotate(30deg);
             }
             30%{
-                transform: rotate(90deg);
-                background-color: rgba(234, 168, 68, 0.875);
-
+                transform: rotate(60deg);
+                opacity: 0.5;
             }
             45%{
-                transform: rotate(120deg);
-                background-color: rgb(247, 126, 27);
+                transform: rotate(90deg);
+                opacity: 0;
             }
             60%{
-                backface-visibility: hidden;
-                background-color: rgb(20, 13, 147);
+                opacity: 0;
             }
             75%{
-                backface-visibility: hidden;
-                background-color: rgb(5, 50, 89);
+                transform: rotate(-30deg);
+                opacity: 0;
             }
             100%{
-                backface-visibility: hidden;
-                background-color: rgb(16, 4, 55);
+                transform: rotate(0deg);
+                opacity: 1;
             }
             
         }
@@ -109,29 +108,31 @@
         }
         @keyframes cloud {
             0%{
-                right: 100px;
+                right: 200px;
             }
             15%{
-                right: 150px;
+                right: 400px;
             }
             30%{
-                right: 200px;
+                right: 600px;
+                opacity: 0.5;
 
             }
             45%{
-                right: 250px;
+                right: 800px;
+                opacity: 0;
             }
             60%{
-                backface-visibility: hidden;
-                background-color: rgb(20, 13, 147);
+                right: 600px;
+                opacity: 0;
             }
             75%{
-                backface-visibility: hidden;
-                background-color: rgb(5, 50, 89);
+                right: 400px;
+                opacity: 0;
             }
             100%{
-                backface-visibility: hidden;
-                background-color: rgb(16, 4, 55);
+                right: 200px;
+                opacity: 1;
             }
             
         }
@@ -140,11 +141,83 @@
             right: 100px;
             top: 10px;
             z-index: 3;
+            
+            animation-name: cloud2;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 4;
+        }
+        @keyframes cloud2 {
+            0%{
+                right: 100px;
+            }
+            15%{
+                right: 250px;
+            }
+            30%{
+                right: 350px;
+                opacity: 0.5;
+
+            }
+            45%{
+                right: 500px;
+                opacity: 0.3;
+            }
+            60%{
+                right: 350px;
+                opacity: 0;
+            }
+            75%{
+                right: 250px;
+                opacity: 0;
+            }
+            100%{
+                right: 100px;
+                opacity: 1;
+            }
         }
         .moon{
             scale: 0.1;
             right: 580px;
             bottom: 50px;
+
+            animation-name: moon;
+            animation-duration: 5s;
+            animation-delay: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 4;
+            opacity: 0;
+        }
+
+        @keyframes moon {
+            0%{
+                opacity: 0;
+                transform: rotate(0deg);
+            }
+            15%{
+                opacity: 0;
+                transform: rotate(30deg);
+            }
+            30%{
+                transform: rotate(60deg);
+                opacity: 0.5;
+            }
+            45%{
+                transform: rotate(90deg);
+                opacity: 1;
+            }
+            60%{
+                opacity: 1;
+            }
+            75%{
+                /* transform: rotate(-30deg); */
+                opacity: 1;
+            }
+            100%{
+                /* transform: rotate(0deg); */
+                opacity: 0;
+            }
         }
 
     </style>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rainbow</title>
+    <script>
+        let rainbow = ['red', 'orange', 'yellow', 'green','blue','navey','purple' ];
+
+        // 1
+        console.log(rainbow[0], rainbow[1], rainbow[2], rainbow[3]);
+        console.log('index 2 :', rainbow[2])
+
+        // 2
+        rainbow.push('black');
+        console.log(rainbow);
+
+        // 3
+        rainbow.indexOf('black');
+        console.log(rainbow.indexOf('black'));
+        
+        // 4
+        const rerain = rainbow.reverse();
+        console.log(rerain);
+
+
+        //실습2
+        let myInt = {
+            name : '민수',
+            age : 26,
+            gender : 'male',
+        }
+        console.log(myInt);
+        console.log(myInt.name);
+        console.log(myInt.age);
+        console.log(myInt.gender);
+        
+
+        let name = '민수';
+        let number = 3;
+        let real = true;
+        // 실습 3
+        console.log(typeof number + " isn't " + typeof name + " data type." );
+        console.log("Typeof를 boolean 이나 null에 사용하면, " + typeof real + " 이나 "+typeof{} +"결과를 얻을 수 있습니다.");
+
+        console.log(`${typeof 1} isn't ${typeof '1'} data type`);
+        console.log(`Typeof를 boolean이나 null에 사용하면, ${typeof true}이나 ${typeof null} 결과를 얻음`);
+
+        // 형변환
+        // let mathScore = prompt("수학 점수를 입력 하세요");
+        // let engScore = prompt("영어 점수를 입력해 주세요");
+
+        // let avg = (mathScore + engScore) /2;
+
+        // console.log(avg);
+
+        // 1. 값 -> 문자 String()
+        let str1 = true;
+        let str2 = 123;
+        let str3 = null;
+
+        console.log(typeof String(str1));
+        console.log(typeof String(str2));
+        console.log(typeof String(null));
+        // console.log(typeof str3.toString());
+
+        // 2. 값 -> 숫자 Number()
+        let n1 = true;
+        let n2 = false;
+        let n3 = "123.9";
+
+        console.log(typeof Number(n1));
+        console.log(typeof Number(n2));
+        console.log(typeof Number(n3));
+        console.log(typeof Number("hello"));
+
+
+        console.log(Number(n1));
+        console.log(Number(n2));
+        console.log(Number(n3));
+        console.log(Number("hello"));
+
+        //실습 4
+        let mathScore = "77";
+        let engScore = "88";
+        // let mathScore = prompt("수학 점수를 입력 하세요");
+        // let engScore = prompt("영어 점수를 입력해 주세요");
+
+        let avg = (Number(mathScore) + Number(engScore))/2;
+
+        console.log(avg);
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

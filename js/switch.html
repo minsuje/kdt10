@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+    <script>
+        // switch 문
+        /*
+        * switch(변수){
+            case 값1:
+                변수 == 값1일 때 실행할 코드
+                breake; breake문을 만나면 switch를 빠져나옴
+            case 값2:
+                코드~
+                break;
+            default:
+                기본적으로 실행할 코드
+        }
+        */
+
+        let name = 'min';
+        switch(name){
+            case "kim":
+                console.log('name은 kim입니다.');
+                break;
+            case 'lee':
+                console.log('name은 lee입니다.');
+                break;
+            default:
+                console.log('kim도 lee도 아니다.');
+        }
+
+        // 3항 연산자
+        if (name == 'lee'){
+            console.log('name == lee');
+        } else {
+            console.log('name != lee');
+        }
+
+        /*
+        3항 연산자
+        조건식 ? 참일 때 실행할 코드 : 거짓일 때 실행할 코드
+        */
+        name == 'lee' ? console.log('name == lee') : console.log('name != lee');
+        name == 'kim' ? console.log('name == kim') : name == 'lee' ? console.log('name != kim && name == lee') : console.log('name != kim && name != lee');
+
+        let now = new Date().getHours();
+        now < 12 ? console.log('Time == 오전') : console.log('Time == 오후');
+
+        // for 문
+        for(let i=0; i < 10; i++){
+            // 초기화 : i를 0으로 세팅
+            //조건식 : i가 10보다 적을 때
+            //증강식 : i를 1씩 키우겠다.
+            console.log('i :', i);
+        }
+        // for(let i = 1; i <10; i+2){
+        //     console.log('i :', i);
+        // }
+
+        // 실습 7
+        // for(let i=0; i<=10000; i++){
+        //     if(i%13 == 0 && i%2 == 1){
+        //         console.log(i);
+        //     }
+        // }
+        let n = prompt();
+        n = Number(n);
+        for(i=0; i<=n; i++){
+            if(i%13 == 0 && i%2 == 1){
+                console.log(i);
+            }
+        }
+
+        /*for(let i = 0; i <= 1000; i = i +13){
+            if(i %2 ==1) console.log(i)
+        }*/
+
+        // 구구단
+        for(let i=2; i < 10; i++){
+            console.log(i + "단");
+            for(let n=1; n < 10; n++){
+                console.log(i + " x " + n + " = " + i*n);
+            }
+            
+        }
+        
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

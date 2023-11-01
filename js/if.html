@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if</title>
+    <script>
+        /*
+        *if (조건1) {
+            조건1이 참일 때 실행할 코드
+        } else if(조건2){
+            조건2가 있다면 작성, 조건2가 참일 때 실행할 코드
+        } else if(조건3){
+            조건 3이 있다면 작성, 조건 3이 참일 때 실행할 코드
+        } else {
+            위의 모든 조건들이 거짓일 때 실행할 코드
+        }
+        */
+
+        if( 3 > 5){
+            console.log('3 > 5');
+        } else {
+            console.log(' 3 <= 5');
+        }
+
+        let name = "lee";
+        if(name == 'kim'){
+            console.log('name : kim');
+        } else if(name == 'lee'){
+            console.log('name : lee');
+        } else{
+            console.log('name : kimX, leeX');
+        }
+
+        let age = prompt('나이를 입력하세요');
+        age = Number(age);
+        // let gender = prompt('성별을 입력')
+
+        // 한줄이면 중가로를 생략가능
+        // ex) if (age >=20 ) console.log('성인');
+        // if (age >= 20){
+        //     console.log(`성인 ${gender}`);
+        // } else if( age >= 17){
+        //     console.log(`고등학생 ${gender}`);
+        // } else if( age >= 14){
+        //     console.log(`중학생 ${gender}`);
+
+        // } else if( age >=8 ){
+        //     console.log(`초등학생 ${gender}`);
+
+        // } else if( age >= 0) {
+        //     console.log(`유아 ${gender}`);
+        // }
+        if (age >= 20){
+            console.log(`성인`);
+        } else if( age >= 17){
+            console.log(`고등학생`);
+        } else if( age >= 14){
+            console.log(`중학생`);
+
+        } else if( age >=8 ){
+            console.log(`초등학생`);
+
+        } else if( age >= 0) {
+            console.log(`유아`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

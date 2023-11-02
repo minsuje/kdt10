@@ -34,36 +34,36 @@
 
         let age = prompt('나이를 입력하세요');
         age = Number(age);
-        // let gender = prompt('성별을 입력')
+        let gender = prompt('성별을 입력')
 
         // 한줄이면 중가로를 생략가능
         // ex) if (age >=20 ) console.log('성인');
-        // if (age >= 20){
-        //     console.log(`성인 ${gender}`);
-        // } else if( age >= 17){
-        //     console.log(`고등학생 ${gender}`);
-        // } else if( age >= 14){
-        //     console.log(`중학생 ${gender}`);
-
-        // } else if( age >=8 ){
-        //     console.log(`초등학생 ${gender}`);
-
-        // } else if( age >= 0) {
-        //     console.log(`유아 ${gender}`);
-        // }
         if (age >= 20){
-            console.log(`성인`);
+            console.log(`성인 ${gender}`);
         } else if( age >= 17){
-            console.log(`고등학생`);
+            console.log(`고등학생 ${gender}`);
         } else if( age >= 14){
-            console.log(`중학생`);
+            console.log(`중학생 ${gender}`);
 
         } else if( age >=8 ){
-            console.log(`초등학생`);
+            console.log(`초등학생 ${gender}`);
 
         } else if( age >= 0) {
-            console.log(`유아`);
+            console.log(`유아 ${gender}`);
         }
+        // if (age >= 20){
+        //     console.log(`성인`);
+        // } else if( age >= 17){
+        //     console.log(`고등학생`);
+        // } else if( age >= 14){
+        //     console.log(`중학생`);
+
+        // } else if( age >=8 ){
+        //     console.log(`초등학생`);
+
+        // } else if( age >= 0) {
+        //     console.log(`유아`);
+        // }
     </script>
 </head>
 <body>

@@ -43,24 +43,26 @@
         n = Number(n);
         let sum = 0;
         for(let i=0; i <= n; i++){
-            // if(0 < n < 100){
-            //     if(i%2 == 0 || i%3 == 0){
-            //         sum += i;
-            //     }
-            // }
-            if(n <= 0 && n >= 100) alert("입력값이 잘못됨");
-            else{
-                if(i%2 == 0 || i%3 == 0) sum += i;
+            if(0 < n && n < 100){
+                if(i%2 == 0 || i%3 == 0){
+                    sum += i;
+                }
             }
+            // if(n <= 0 && n >= 100) alert("입력값이 잘못됨");
+            // else{
+            //     if(i%2 == 0 || i%3 == 0) sum += i;
+            // }
         }
         console.log(sum);
 
-        let sum2 = 0;
-        let g = 0;
-        while(g < n){
-            if(g%2 == 0 || g%3 == 0) sum2 += g;
-            i++
-        }
+        // let sum2 = 0;
+        // let g = 0;
+        // while(g < n){
+        //     if(g%2 == 0 || g%3 == 0) sum2 += g;
+        //     i++
+        // }
+
+        //for in 구문, do while 구문 공부해오기 ( 블로깅 )
     </script>
 </head>
 <body>

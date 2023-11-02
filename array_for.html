@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array for문</title>
+    <script>
+        let fruits = ['apple', 'banna','orange','malon', 'grape'];
+
+        console.log('for basic');
+        for(let i=0; i < fruits.length; i++){
+            console.log(fruits[i]);
+        }
+
+        console.log('for of');
+        for(let fruit of fruits){
+            console.log(fruit);
+        }
+
+        console.log('forEach');
+        fruits.forEach((fruit, index, arr) => {
+            console.log(fruit);
+            console.log(index);
+            console.log(arr);
+        })
+
+        fruits.forEach((fruit) => {
+            console.log('frutit :',fruit);
+        })
+
+        // filter
+        console.log('filter');
+        let filterResult = fruits.filter((fruit) => {
+            return fruit.includes('p');
+        })
+        let filterResul2 = fruits.filter(fruit =>  fruit.includes('p')); //한줄일 때만 가능
+        console.log('filterResult : ' , filterResult);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

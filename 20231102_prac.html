@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prac</title>
+    <script>
+        let arr = [];
+        let sum = 0;
+        let sum1 = 0;
+        let sum2 = 0;
+        for(let i=1; i <= 100; i++){
+            arr.push(i);
+        }
+        console.log(arr);
+
+        //for 문
+        for(let i=0; i < arr.length; i++){
+            sum += arr[i];
+        }
+        console.log(sum);
+
+        //for of문
+
+        for(let Arr of arr){
+            sum1 += Arr;
+        }
+        console.log(sum1);
+
+        //for Each 문
+        arr.forEach(Arr => {
+            return sum2 += Arr;
+        });
+        console.log(sum2);
+
+        // 실습2
+        let fruits = ['사과', '딸기', '파인애플', '수박', '참외', '오렌지', '자두', '망고'];
+        let fruits2 = ['수박', '사과', '참외', '오렌지', '파인애플', '망고'];
+
+        
+        let same = fruits.filter((fruit) => {
+            return fruits.includes(fruit) && fruits2.includes(fruit);
+        })
+        console.log(same);
+
+        let diff = fruits.filter((fruit) => fruits.includes(fruit) && !fruits2.includes(fruit)
+        );
+        console.log(diff);
+
+
+        // let same = [];
+        // let diff = [];
+        // for(let i =0; i < fruits.length; i++){
+        //     if(fruits2.includes(fruits[i])){
+        //         same.push(fruits[i]);
+        //     } else{
+        //         diff.push(fruits[i]);
+        //     }
+        // }
+
+
+        //programmers
+        // function solution(num) {
+        //     var answer = '0';
+        //     answer = num%2 == 0 ? 'Even' : 'Odd';
+        //     return answer;
+        // }
+
+        // function solution(n) {
+        //     var answer = '';
+            
+        //     let a = ['수', '박'];
+
+        //     if(let j=0; j<n; j++){
+        //         answer = a[(j%2)];
+        //     }
+
+        //     return answer;
+        // }
+
+        function solution(n){
+            var answer = 0;
+            result = String(n);
+            console.log(result);
+            for (let i = 0; i < result.length; i++ ){
+                answer += parseInt(result[i]);
+            }
+
+            // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+            console.log('Hello Javascript');
+            console.log(answer);
+
+            return answer;
+
+        }
+        solution(123);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

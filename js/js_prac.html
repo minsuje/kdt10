@@ -5,8 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>js prac</title>
     <script>
-        console.log('hello');
-        alert('alert 연습');
+        let str = ' Happy day~! ';
+
+        console.log("문자열의 길이 : ",str.length);
+
+        console.log('문자열 대문자 변경 :', str.toUpperCase());
+
+        console.log('문자열 소문자 변경 :', str.toLowerCase());
+
+        console.log('인덱스 숫자 반환 : ' ,str.indexOf('p'));
+
+        console.log('슬라이싱 : ',str.slice(1,6));
+
+        console.log('문자열1을 문자열 2로 대체 : ',str.replace('a', 'e'));
+
+        console.log('문자열1 전부를 문자열 2로 대체 : ',str.replaceAll('a','e'));
+
+        console.log('문자열을 n번 반복 : ',str.repeat(2));
+
+        console.log('문자열의 공백 제거 : ',str.trim());
+
+        console.log('매개변수 문자열 기준으로 배열 저장 : ',str.split(''));
+
+        console.log('매개변수 문자열 기준으로 배열 저장 : ',str.split(' '));
+
+
+
+        let months = ['M','T','W','T','F','S','S'];
+
+        console.log(months.reverse().join());
+
+        
+        // console.log('lenght : ' , months.length);
+
+        // console.log('indexOf() : ', months.indexOf('M'));
+
+        // console.log(' join() : ', months.join())
+        // console.log(' join() : ', months.join(''));
+        // console.log(' join() : ', months.join('&'));
+
+        // console.log(' reverse() : ', months.reverse());
+
+
+
     </script>
 </head>
 <body>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    값1: <input type="text" id="put1"> <br>
+    값2: <input type="text" id="put2"><br>
+    연산자 : <input type="text" id="and"><br>
+    결과 : <input type="text" id="total"><br>
+
+    <script>
+        function getValue(){
+            //값 가져와서 할당하기
+            let Input = document.getElementById('put1').value;
+            let Input2 = document.getElementById('put2').value;
+            let And = document.getElementById('and').value;
+
+            let Total = document.getElementById('total');
+            Total.value = Input.value+And.value+Input2.value;
+
+            
+            console.log(Input);
+            console.log(Input2);
+            console.log(And);
+            // console.log(Total.value);
+            
+            
+
+        }
+    </script>
+
+    <button onclick="getValue()">get value</button>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 요소 추가 삭제</title>
+    <script>
+        // let ul = document.querySelector('ul'); NULL
+        function createNode() {
+            //노드 만들기
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트';
+            console.log('li :', li);
+        }
+
+        function appendNode() {
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트';
+
+            //append() : 요소.append()선택한 요소의 맨 뒤 자식 요소로 추가
+            let ul = document.querySelector('ul');
+            console.log(ul);
+            ul.append(li);
+            ul.append('text');
+
+        }
+
+        function appendChildNode() {
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트 append child';
+            //append() : 요소.appendChild()선택한 요소의 맨 뒤 자식 요소로 추가
+            let ul = document.querySelector('ul');
+            console.log(ul);
+            ul.appendChild(li);
+            ul.appendChild('text'); // error : appendChild()는 요소 노드만 가능하고 text요소는 안된다.
+        }
+
+        function prependNode(){
+            let li = document.createElement('li');
+            li.innerText = '새로 추가된 리스트 prepend child';
+
+            let ul = document.querySelector('ul');
+            ul.prepend(li);
+        }
+
+        function beforNode(){
+            // 기존 노드 앞에 형제 요소로 추가
+            let standard = document.getElementById('li');
+
+            let li = document.createElement('li');
+            li.innerText = 'before';
+            standard.before(li);
+        }
+
+        function afterNode(){
+            let standard = document.getElementById('li');
+
+            let li = document.createElement('li');
+            li.innerText = 'after';
+            standard.after(li);
+        }
+
+        function removeNode(){
+            //내가 선택한 요소 삭제
+            let standard = document.getElementById('li');
+
+            standard.remove();
+        }
+
+        function removeChildNode(){
+            let ul = document.querySelector('ul');
+            let standard = document.getElementById('li');
+            console.log(ul.removeChild(standard));
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li id="li">3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <button onclick="createNode()">createNode</button>
+    <button onclick="appendNode()">appendNode</button>
+    <button onclick="appendChildNode()">appendChildNode</button>
+    <button onclick="prependNode()">prependNOde</button>
+    <button onclick="beforNode()">before</button>
+    <button onclick="afterNode()">after</button>
+    <button onclick="removeNode()">remove</button>
+    <button onclick="removeChildNode()">removeChild</button>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 실습</title>
+</head>
+
+<body>
+    <div>
+        <p>방명록입니다.</p>
+
+        <div>
+            <table class="tbl">
+                <tr>
+                    <th>작성자</th>
+                    <td>
+                        <input type="text" id="name" style="width: 100px" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <input type="text" id="content" style="width: 500px" />
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+            <button type="button" onclick="writeNote();">작성</button>
+
+            <br /><br />
+
+            <table id="table" border="1" cellpadding="10" cellspacing="1">
+                <tr>
+                    <th>번호</th>
+                    <th>작성자</th>
+                    <th>내용</th>
+                    <th>작성일</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let cnt = 1;
+
+        function writeNote() {
+            // 작성자, 내용 요소 선택, 값 가져오기
+            let nameVal = document.getElementById('name').value;
+            let contentVal = document.getElementById('content').value;
+
+            let table = document.getElementById('table');
+
+            let garo = document.createElement('tr'); // <tr></tr>
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+
+            td1.innerText = cnt;
+            cnt++; // cnt 1씩 증가
+            td2.innerText = nameVal;
+            td3.innerText = contentVal;
+            let date = new Date();
+            td4.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+            garo.appendChild(td1);
+            garo.appendChild(td2);
+            garo.appendChild(td3);
+            garo.appendChild(td4);
+
+            table.appendChild(garo);
+
+        }
+    </script>
+</body>
+
+</html>

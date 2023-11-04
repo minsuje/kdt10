@@ -13,25 +13,77 @@
 
     <script>
         function getValue(){
-            //값 가져와서 할당하기
-            let Input = document.getElementById('put1').value;
-            let Input2 = document.getElementById('put2').value;
-            let And = document.getElementById('and').value;
+            //할당하기
+            // 각각의 요소들을 1) 선택 2) 값을 가져옴
 
+            //1) 요소선택
+            let Input = document.getElementById('put1');
+            let Input2 = document.getElementById('put2');
+            let And = document.getElementById('and');
             let Total = document.getElementById('total');
-            Total.value = Input.value+And.value+Input2.value;
+            
 
-            
-            console.log(Input);
-            console.log(Input2);
-            console.log(And);
-            // console.log(Total.value);
-            
-            
+            //let Input = document.getElementById('put1');
+            //let Input2 = document.getElementById('put2');
+            //let And = document.getElementById('and');
+
+
+            //값 가져오기
+            let Inputval = Input.value;
+            let Input2val = Input2.value;
+            let Andval = And.value;
+
+            //숫자로 형변환
+            Inputval = Number(Inputval);
+            Input2val = Number(Input2val);
+
+            switch(Andval){
+                case '+' :
+                    result = Inputval + Input2val;
+                    break;
+                case '-' :
+                    result = Inputval - Input2val;
+                    break;
+                case '*' :
+                    result = Inputval * Input2val;
+                    break;
+                case '/' :
+                    result = Inputval / Input2val
+                    break;
+            }
+
+            console.log(result);
+            Total.value = result;
+            console.log(Total);
+            // Total.value = result;
+            // console.log(Total);
+
+            // let resVal = document.getElementById('res').value;
+            // -> let resVal = '3' 과 같은 형식이다.
+            // resVal = result; 
+            // input창에 반영 안됨 -> 'text' 값으로 존재, 요소x
+            // console.log('resVal :', resVal);
+            // console.log('typeof resVal :', typeof resVal);
+            // resVal = result;
 
         }
+        function reset() {
+
+            let Input = document.getElementById('put1');
+            let Input2 = document.getElementById('put2');
+            let And = document.getElementById('and');
+            let Total = document.getElementById('total');
+
+            Input.value = '';
+            Input2.value = '';
+            And.value = '';
+            Total.value = '';
+        }
+
+
     </script>
 
     <button onclick="getValue()">get value</button>
+    <button onclick="reset()">reset</button>
 </body>
 </html>

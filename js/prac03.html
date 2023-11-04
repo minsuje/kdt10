@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 만들기</title>
+    <script>
+
+        //전역 변수 cnt라는 변수 만들기
+        //전역 변수는 어디서든 script태그 안에서 사용가능
+
+        let cnt = 1;
+
+        function push() {
+            let Name = document.getElementById('name');
+            let Script = document.getElementById('script');
+
+            let Nameval = Name.value;
+            let Scriptval = Script.value;
+
+            // 테이블 선택
+            // let Table = document.querySelector('table');
+            let Table = document.getElementById('table');
+
+            // 테이블에 tr 추가
+            let newTr = document.createElement('tr');
+            Table.append(newTr);
+            // 추가된 Tr에 td추가
+            let newTd1 = document.createElement('td');
+            newTr.append(newTd1);
+            let newTd2 = document.createElement('td');
+            newTr.append(newTd2);
+            let newTd3 = document.createElement('td');
+            newTr.append(newTd3);
+            let newTd4 = document.createElement('td');
+            newTr.append(newTd4);
+
+            //시간 만들기
+
+            let now = new Date();
+            let year = now.getFullYear();
+            let months = now.getMonth();
+            let date = now.getDate();
+            let hours = now.getHours();
+            let min = now.getMinutes();
+
+
+            // 값 입력
+            newTd1.innerText = cnt;
+            cnt++;
+            // newTd1.innerText = newTr.rowIndex;
+            newTd2.innerText = Name.value;
+            newTd3.innerText = Script.value;
+            newTd4.innerText = `${year}-${months+1}-${date}  ${hours} : ${min}`;
+            // newTd4.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(); + ' ' + date.getHours() + ' : ' + date.getMinutes();
+
+
+            //let Input = document.getElementById('input').value;
+            //let write = document.getElementByID('write').value;
+
+
+            //테이블 추가
+            // 여러 개의 자식을 추가할 경우 : 거꾸로 추가해 주면 된다.
+            //td 만들기 -> td를 tr에 추가 -> (tr>td) 이 tr을 통째로 table에 추가
+
+            //테이블 요소 선택
+            // let table = document.getElementById('table');
+            
+            //새로운 요소 만들기 (tr, td - 4개 - > 번호, 작성자, 내용, 작성일)
+
+            // let garo = document.createElement('tr');
+            //<tr></tr>
+
+            // td 4개 만들기
+            // let td1 = document.createElement('td');
+            // let td2 = document.createElement('td');
+            // let td3= document.createElement('td');
+            // let td4 = document.createElement('td');
+
+            // td안의 내용값 채우기
+            // td1.innerText = cnt;
+            //cnt++; //cnt를 1씩 증가
+            // td2.innerText = Input;
+            // td3.innerText = write
+            // td4.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+            //tr (garo)요소에 만든 td들 자식요소로 추가
+            // garo.appendChild(td1);
+            // garo.appendChild(td2);
+            // garo.appendChild(td3);
+            // garo.appendChild(td4);
+
+
+            //tr을 table요소에 자식 요소로 추가
+            // table.appendChild(garo);
+
+            //입력값 초가화
+            // Name.value = '';
+            // Script.value = '';
+
+            //초기화 다른 예시
+            let inputs = document.querySelectorAll('input');
+            console.log(inputs);
+
+            for(let i =0; i< inputs.length; i++){
+                console.log('for문 : ',inputs[i]);
+                // inputs[i] : 위에 name, content 라는 변수로 만들어 둔 요소와 동일
+                inputs[i].value = '';
+            }
+        }
+        
+        
+    </script>
+</head>
+<body>
+    작성자<input type="text" id="name"><br>
+    내용<input style="width: 300px" type="text" id="script"> <br>
+
+    <button onclick="push()" id="send">작성</button>
+
+    <table id='table' style="border: 1px solid black;" cellpadding="10" cellspacing="1">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+    </table>
+</body>
+</html>

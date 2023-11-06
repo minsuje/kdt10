@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     값1: <input type="text" id="put1"> <br>
     값2: <input type="text" id="put2"><br>
@@ -12,7 +14,7 @@
     결과 : <input type="text" id="total"><br>
 
     <script>
-        function getValue(){
+        function getValue() {
             //할당하기
             // 각각의 요소들을 1) 선택 2) 값을 가져옴
 
@@ -21,7 +23,7 @@
             let Input2 = document.getElementById('put2');
             let And = document.getElementById('and');
             let Total = document.getElementById('total');
-            
+
 
             //let Input = document.getElementById('put1');
             //let Input2 = document.getElementById('put2');
@@ -37,17 +39,17 @@
             Inputval = Number(Inputval);
             Input2val = Number(Input2val);
 
-            switch(Andval){
-                case '+' :
+            switch (Andval) {
+                case '+':
                     result = Inputval + Input2val;
                     break;
-                case '-' :
+                case '-':
                     result = Inputval - Input2val;
                     break;
-                case '*' :
+                case '*':
                     result = Inputval * Input2val;
                     break;
-                case '/' :
+                case '/':
                     result = Inputval / Input2val
                     break;
             }
@@ -86,4 +88,5 @@
     <button onclick="getValue()">get value</button>
     <button onclick="reset()">reset</button>
 </body>
+
 </html>

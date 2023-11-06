@@ -44,6 +44,8 @@
     </div>
 
     <script>
+        // 전역변수 cnt라는 변수 만들기
+        // 전역변수: 어디서든 script 태그 안에서 사용 가능
         let cnt = 1;
 
         function writeNote() {
@@ -51,28 +53,59 @@
             let nameVal = document.getElementById('name').value;
             let contentVal = document.getElementById('content').value;
 
+            // 테이블 추가
+            // 여러 개의 자식을 추가할 경우 : 거꾸로 추가해주면 된다
+            // td 만들기 -> td를 tr에 추가 -> (tr>td) 이 tr을 통째로 table 추가
+
+            // 테이블 요소 선택
             let table = document.getElementById('table');
+            // 새로운 요소 만들기 (tr, td - 4개- 번호, 작성자, 내용, 작성일)
 
             let garo = document.createElement('tr'); // <tr></tr>
+
+            // td 4개 만들기
             let td1 = document.createElement('td');
             let td2 = document.createElement('td');
             let td3 = document.createElement('td');
             let td4 = document.createElement('td');
 
+            // td 안의 내용 값 채우기
+            // td1 : 순서(번호)
             td1.innerText = cnt;
             cnt++; // cnt 1씩 증가
+
+            // td2 : 작성자
             td2.innerText = nameVal;
+            // td3 : 내용
             td3.innerText = contentVal;
+            // td4 : 작성시간
             let date = new Date();
             td4.innerText = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
+            // tr (garo) 요소에 만든 td들 자식요소로 추가
             garo.appendChild(td1);
             garo.appendChild(td2);
             garo.appendChild(td3);
             garo.appendChild(td4);
 
+            // tr 요소를 table 요소에 자식요소로 추가
             table.appendChild(garo);
 
+            // 입력값 초기화
+            let name = document.getElementById('name');
+            let content = document.getElementById('content');
+            name.value = '';
+            content.value = '';
+
+            // 초기화 다른 예시
+            let inputs = document.querySelectorAll('input'); // NodeList
+            console.log(inputs);
+
+            for(let i = 0; i < inputs.length; i++) {
+                console.log('for문 :', inputs[i]);
+                // inputs[i] : 위에 name, content 라는 변수로 만들어둔 요소와 동일
+                inputs[i].value = '';
+            }
         }
     </script>
 </body>

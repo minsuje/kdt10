@@ -193,18 +193,25 @@
     </table>
 
     <script>
-
+        let target; // target을 전연 변수로 만들어서 다른 곳에서도 사용가능
         $('td > p').on("click", function(){
             console.log(this);
+            // 날짜만 가져오려면 this의 text값을 가져와야 함
             console.log($(this).text());
-            $('#date').text(this);
+
+            $('#date').val($(this).text()) //this값을 date에 넣음
+            target = this; // target에 this값을 준다.
 
         })
 
         function writeSchedule(){
-            let Text = $('#content').text();
+            let content = $('#content').val(); //content변수로 value값을 받음
+            $(target).parent().append("<span>" + content + "</span><br>"); //target의 부모에 <span>" + content + "</span><br>를 주어서 값을 입력
 
-            $().text(Text); //선택된 날짜 위에 입력
+            //초기화
+            // 초기화
+            $('#content').val(""); // ''을 주어서 초기화
+            $('#date').val("");
         }
     </script>
 </body>

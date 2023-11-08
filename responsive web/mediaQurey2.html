@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+        }
+        @media screen and (max-width: 480px){
+            .less {
+                background-color: red;
+            }
+        }
+        @media screen and (min-width: 480px){
+            .more {
+                background-color: blue;
+            }
+        }
+        /* 두개가 겹치기 떄문에 작동하지 않는다. */
+        @media screen and (max-width: 480px) and (min-width: 480px){
+            .less-and-more {
+                background-color: purple;
+            }
+        }
+        /* (<, >, ==, 같은 연산자로 적용 가능) */
+        /* @media screen and (max-width: 600px) and (min-width: 480px){ */
+            @media screen and (480px <= width <= 600px){
+            .less-and-more {
+                background-color: purple;
+            }
+        }
+
+        /* Landscape(가로) 모드일 때 적용할 CSS */
+        @media screen and (orientation: landscape){
+            body{
+                background-color: gold;
+            }
+            
+        }
+        /* portrait(세로) 모드일 때 적용할 CSS */
+        @media screen and (orientation: portrait){
+            body{
+                background-color: pink;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="less">less 480px</div>
+    <div class="more">more 480px</div>
+    <div class="less-and-more">less-and-more 480px</div>
+</body>
+</html>

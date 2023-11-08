@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://kit.fontawesome.com/837ff3adc1.js" crossorigin="anonymous">
+    </script>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* header 스타일링 */
+        header{
+            width: 100%;
+            height: 100px;
+            z-index: 100;
+        }
+
+        header .inner{
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /*768px 기준으로 높이가 바뀌기 때문에*/
+        }
+
+        /* 로고 */
+        header .inner .logo{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 200px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* 메뉴 스타일링 */
+        header .inner .menu{
+            display: flex;
+        }
+        header .inner .menu li{
+            margin: 0 10px;
+            /* margin: 0 10px 0 10px; */
+            font-weight: 800;
+            cursor: pointer;
+        }
+        /* 테블릿 */
+        @media screen and (480px <= width <= 1024px) {
+            header{
+                height: 60px;
+            }
+            
+            header .inner{
+                display: block;
+                height: 100%; /*768px 기준으로 높이가 바뀌기 때문에*/
+            }
+
+            /* 로고 */
+            header .inner .logo{
+                /* flex를 사용한 방법 */
+                position: relative;
+                display: flex; /*요소의 상하 좌우 중앙 정렬이 가능하다.*/
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                right: 0px;
+                height: 60px;
+                
+                /* position: static을 사용한 방법 */
+                /* position: static;
+                text-align: center;
+                line-height: 60px; */
+            }
+
+            /* 메뉴 스타일링 */
+            header .inner .menu{
+                display: block;
+                text-align: center;
+            }
+            header .inner .menu li{
+                padding: 10px 0;
+                /* margin: 10px 0; */
+                /* margin: 0 10px 0 10px; */
+                font-weight: 500;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header{
+                height: 45px;
+            }
+            
+            header .inner{
+                display: block;
+                background-color: chocolate;
+            }
+
+            header .inner .logo{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                right: 0px;
+                height: 60px;
+            }
+
+            /* 메뉴 스타일링 */
+            header .inner .menu{
+                display: block;
+                background-color: pink;
+                text-align: center;
+            }
+            header .inner .menu li{
+                padding: 10px 0;
+                /* margin: 10px 0; */
+                /* margin: 0 10px 0 10px; */
+                font-weight: 500;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <div class="inner">
+            <div class="logo">
+                <!-- 사이트에 나와 있는 것을 찾아서 붙여 놓으면 된다. !주의 : 폰트어썸 스크립트를 붙여야 한다. -->
+                <i class="fa-solid fa-igloo"></i> 
+            </div>
+            <ul class="menu">
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+            </ul>
+        </div>
+    </header>
+</body>
+</html>

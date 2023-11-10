@@ -16,7 +16,7 @@
         ul{
             margin: 0;
             padding: 0;
-            list-style: none;
+            list-style: none; /* 문자들 앞에 표시되는 *을 없앤다. */
         }
 
         /* header 스타일링 */
@@ -28,9 +28,9 @@
 
         header .inner{
             background-color: lightblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; /* inline 처럼 보이게 하고 위치를 지정해주기 위해 */
+            justify-content: center; /* 아이템을 가운데 정렬 */
+            align-items: center; /* 아이템을 각 줄에 중간에 정렬*/
             height: 100%; /*768px 기준으로 높이가 바뀌기 때문에*/
         }
 
@@ -47,7 +47,7 @@
 
         /* 메뉴 스타일링 */
         header .inner .menu{
-            display: flex;
+            display: flex; /* li들을 일렬로 만들려고 사용*/
         }
         header .inner .menu li{
             margin: 0 10px;
@@ -86,7 +86,7 @@
             /* 메뉴 스타일링 */
             header .inner .menu{
                 display: block;
-                text-align: center;
+                text-align: center; /*텍스트 중앙 정렬*/
             }
             header .inner .menu li{
                 padding: 10px 0;
@@ -113,7 +113,7 @@
                 align-items: center;
                 width: 100%;
                 right: 0px;
-                height: 60px;
+                height: 45px;
             }
 
             /* 메뉴 스타일링 */

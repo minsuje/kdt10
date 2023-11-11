@@ -28,19 +28,21 @@
     <div class="alert alert-dark" role="alert">dark-alert</div>
 </body>
 <script>
+    
+
     const showAlert = document.querySelector('#show-alert');
-    const appendAlert = (mes, type) => {
-        const newDiv = document.createElement('div')
+    const appendAlert = (msg, type) => {
+        const newDiv = document.createElement('div');
         newDiv.innerHTML = [
-            `<ㄴ class='alert alert-${type} alert-dismissible' role='alert'>`,
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
             `<div>${msg}</div>`,
-            `<button type='button' class='btn-close' date-bs-dismiss='alert' aria-label="Close"></button>`,
+            `<button type='button' class='btn-close' data-bs-dismiss="alert" aria-label="Close"></button>`,
             '</div>' // $변수를 사용하지 않아서
         ].join('');
         // ['a','b','c'].join('') -> 'abc'
-
         showAlert.append(newDiv);
     }
+
 
     const btnTrigger = document.querySelector('#btn');
     btnTrigger.addEventListener('click', () => {

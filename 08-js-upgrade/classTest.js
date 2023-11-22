@@ -80,26 +80,26 @@ apt1.getAge();
 console.log(apt1.getFloor());
 // apt1.getFloor();
 
-class Rectangle extends Shape{
-    constructor(width, heigth){
-        super(width, heigth);
-        // diagonal
-    }
+// class Rectangle extends Shape{
+//     constructor(width, heigth){
+//         super(width, heigth);
+//         // diagonal
+//     }
 
-    getDia(){
-        return Math.sqrt((this.width)*(this.width)) + Math.sqrt((this.heigth)*(this.heigth)); 
-    }
-}
-let math1 = new Rectangle(10, 10);
-console.log(math1.getArea()); //넓이
-console.log(math1.getDia()); //대각선
+//     getDia(){
+//         return Math.sqrt((this.width)*(this.width)) + Math.sqrt((this.heigth)*(this.heigth)); 
+//     }
+// }
+// let math1 = new Rectangle(10, 10);
+// console.log(math1.getArea()); //넓이
+// console.log(math1.getDia()); //대각선
 
-class Triangle extends Shape {
-    constructor(width, heigth, ){
-        this.Area1 = Area1;
-        this.Area2 = Area2;
-        this.Area3 = Area3;
-    }
+// class Triangle extends Shape {
+//     constructor(width, heigth, ){
+//         this.Area1 = Area1;
+//         this.Area2 = Area2;
+//         this.Area3 = Area3;
+//     }
 
 
-}
+// }

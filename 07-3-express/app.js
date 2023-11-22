@@ -26,7 +26,15 @@ app.get('/', function(req, res){
     // res.send('<h1>Hello Express!</h1>');
 
     // index라는 파일명을 찾아서 해당 파일 렌더
-    res.render("index");
+    //값을 보낼 때는 ,를 넣고 {}를 넣는다, 기본적으로 객체형태
+    res.render("index",{
+        btns: ['사과', '오렌지', '키위'],
+        isLogin : true,
+        me: {
+            name : 'minsu',
+            msg: '반갑습니다.'
+        }
+    });
 
 })
 
@@ -34,6 +42,16 @@ app.get('/kdt', function(req, res){
     // res.send(응답내용)
     res.send('<h1>Hello KDT!</h1>');
 })
+
+//login 경로 추가
+app.get('/login', function(req, res){
+    res.render('login');
+})
+//register 경로 추가
+app.get('/register', function(req, res){
+    res.render('register');
+})
+
 
 app.listen(PORT, function(){
     console.log(`server listening on ${PORT}`);

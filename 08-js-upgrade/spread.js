@@ -9,6 +9,7 @@ const spread = [...a, ...b]; //[ 1, 2, 3, 4, 5 ]
 console.log(spread);
 
 //문자열에서 spread
+// 세 결과 모두 같은 값이 나온다.
 const str = 'Hello';
 console.log([...str]); //[ 'H', 'e', 'l', 'l', 'o' ]
 console.log([...'Hello']);

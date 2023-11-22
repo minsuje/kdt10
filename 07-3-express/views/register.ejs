@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <%- include('./component/head', {title: 'Register' }) %>
+</head>
+
+<body>
+    <%- include('./component/header') %>
+        <h1>Register</h1>
+
+        <div class="row g-3 align-items-center">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID">
+        </div>
+
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Password</label>
+            </div>
+            <div class="col-auto">
+                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+            </div>
+            <div class="col-auto">
+                <span id="passwordHelpInline" class="form-text">
+                    Must be 8-20 characters long.
+                </span>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary">Send</button>
+</body>
+
+</html>

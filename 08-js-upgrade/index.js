@@ -14,7 +14,7 @@ console.log(x,y,z,alpha); //alpha는 값이 없다. undefined
 
 const list = ['apple', 'orange'];
 const [f1,f2,f3 = 'bannana'] = list
-console.log(f1,f2,f3);
+console.log(f1,f2,f3); //값이 없는 f3에 기본값이 부여 bannana
 
 let num1 =1, num2 = 3;
 console.log('swap 전 >' ,num1,num2);
@@ -27,13 +27,14 @@ console.log('swap 후 >' ,num1,num2);
 const obj = {
     title : '독전2',
     star : 1,
-    content: '제발보지마라,,,'
+    content: '흠,,,'
 }
 
 // 구조 분해를 안했다면
 console.log(obj.title, obj.star, obj.content);
 
 // 키가 존재하지 않는 경우 대비하여 default값 할당(price = 1000)
+//객체 구조분해는 순서가 중요하지 않다.
 const{content, star, title, price = 1000} = obj;
 console.log(content,star, title, price);
 
@@ -57,7 +58,7 @@ function getInfo(lecture){
     console.log(lecture)
     const {name, time, content } = lecture;
     // 출력 문장 생성
-    const output = `${name} 강의는 ${time}시간에하고 ${content}`
+    const output = `${name} 강의는 ${time}이고 i'm ${content}`
     // 출력 문장 리턴
     return output;
 }

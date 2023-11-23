@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>콜백지옥 예시</h1>
+    <script>
+    //     setTimeout(function(){
+    //         document.body.style.backgroundColor = 'red';
+
+    //         setTimeout(function(){
+    //         document.body.style.backgroundColor = 'orange';
+
+    //         setTimeout(function(){
+    //         document.body.style.backgroundColor = 'yellow';
+
+    //         setTimeout(function(){
+    //         document.body.style.backgroundColor = 'green';
+
+    //         setTimeout(function(){
+    //         document.body.style.backgroundColor = 'blue';
+
+    //     }, 1000)
+    //    }, 1000)
+    //   }, 1000)
+    //  }, 1000)
+    // }, 1000)
+    </script>
+    <script>
+        function display(color){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = color;
+                    resolve();
+                }, 1000);
+            });
+        }
+
+        // then 이용
+
+        // display('red').then(function(){
+        //     return display('orange');
+        // }).then(function(){
+        //     return display('yellow');
+        // }).then(function(){
+        //     return display('green');
+        // }).then(function(){
+        //     return display('blue');
+        // })
+
+        // async await 방식
+
+        async function exec(){
+            await display('red');
+            await display('orange');
+            await display('yellow');
+            await display('green');
+            await display('blue');
+        }
+        exec();
+    </script>
+</body>
+</html>

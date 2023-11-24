@@ -20,6 +20,7 @@ function pickDrink(){
             product = '콜라'
             price = 1600;
             reject('에러 발생!!!');
+            // resolve();
         }, 3000);
     })
 }

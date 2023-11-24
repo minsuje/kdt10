@@ -9,7 +9,7 @@
  * - rejected : 실패
  */
 
-// //  1. promise 생성코드
+//  1. promise 생성코드
 // function promise1(flag){
 //     // 프로미스 객체를 생성하여 반환
 //     return new Promise(function(resolved, rejected){
@@ -21,7 +21,7 @@
 //     })
 // }
 
-// // 2. promise 사용하는 코드
+// 2. promise 사용하는 코드
 // promise1(5 < 3).then((result) => {
 //     console.log('result :', result);
 // }).catch((error) => {
@@ -119,7 +119,7 @@
 //         setTimeout(function(){
 //             const result = n*2;
 //             // resolv(result);
-//             reject('의도적으로');
+//             reject('의도적으로'); // 에러가 발생시 해당 문장을 출력하고 이후 중단된다.
 //         },700);
 //     })
 
@@ -203,15 +203,15 @@ function hell(){
     })
 }
 
-// call('minsu').then(function(A){
-//     console.log(A + '반가워');
-//     return back();
-// }).then(function(B){
-//     console.log(B+'을 실행했구나');
-//     return hell();
-// }).then(function(C){
-//     console.log('여기는'+ C);
-// })
+call('minsu').then(function(A){
+    console.log(A + '반가워');
+    return back();
+}).then(function(B){
+    console.log(B+'을 실행했구나');
+    return hell();
+}).then(function(C){
+    console.log('여기는'+ C);
+})
 
 // 화살표 함수 버전
 // call('minsu').then((A) => {
@@ -225,12 +225,12 @@ function hell(){
 // })
 
 //  실습2 exec 함수를 만들어 실행
-async function exec(){
-    let user = await call('minsu');
-    console.log(user + '님 환영합니다.');
-    let useing = await back();
-    console.log(useing+'을 실행했구나');
-    let Hell = await hell();
-    console.log(Hell);
-}
-exec();
+// async function exec(){
+//     let user = await call('minsu');
+//     console.log(user + '님 환영합니다.');
+//     let useing = await back();
+//     console.log(useing+'을 실행했구나');
+//     let Hell = await hell();
+//     console.log(Hell);
+// }
+// exec();

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2 결과확인</title>
+    <style>
+        span{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= title %> 폼 결과 확인하기</h1>
+    <div>
+        현재시간 <span><%= userInfo.time %></span>
+    </div>
+    <div>
+        <span><%= userInfo.name %></span>님 환영합니다.
+    </div>
+    <div>
+        생일은 <span><%= userInfo.bday %></span> 이군요!
+    </div>
+    <div>
+        취미는 <span> <%= userInfo.into %></span> 이군요!
+    </div>
+    <div>
+        좋아하는 색깔은 <span><%= userInfo.color %></span> 인가요, 좋은 선택입니다.
+    </div>
+    <% console.log(title, userInfo) %>
+</body>
+</html>

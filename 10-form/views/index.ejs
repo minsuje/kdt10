@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 전송</title>
+</head>
+
+<body>
+    <h1>Form</h1>
+
+    <h2>Get 요청</h2>
+
+    <form action="/login" method="get">
+        <label for="id">ID</label>
+        <input type="text" name="id" placeholder="ID 최소 3글자" id="id" minlength="3">
+        <label for="pw">
+            PW
+            <input type="password" name="pw" id="pw" placeholder="PW" required>
+        </label>
+        <input type="number" name="grade" placeholder="GRADE" max="4">
+        <!-- form 태그 안에 있는 button 태그는 type: submit -->
+        <!-- form 태그로 제출하는게 아니면 form태그 안에 버튼이 있다면 타입을 변경해줘야한다. -->
+        <button>제출</button>
+        <!-- <button type="button">제출</button> -->
+    </form>
+
+    <h2>Post 요청</h2>
+    <!-- pattern 속성 : 폼 요소에 값 입력되었을 때, 그 입력된 값에 대해 검증(입력된 값이 없으면 검증을 안함) -->
+    <!-- required 속성 : 폼 요소에 값이 반드시 들어가야 하는지 여부를 결정 -->
+
+    <!-- method가 다르면 url이 같아도 상관없다. 다른 것으로 서버가 인식 -->
+    <form action="/login" method="post">
+        <label for="id">ID</label>
+        <input type="text" name="id" placeholder="ID" id="id" pattern="^([a-zA-Z0-9가-힣]){4,}$" title="아이디는 대소문자, 숫자, 한글로 구성된 4자 이상의 문자여야 합니다." required>
+        <label for="pw">
+            PW
+            <input type="password" name="pw" id="pw" placeholder="PW" pattern="^([a-z0-9]){8,12}" required>
+        </label>
+        <!-- form 태그 안에 있는 button 태그는 type: submit -->
+        <!-- form 태그로 제출하는게 아니면 form태그 안에 버튼이 있다면 타입을 변경해줘야한다. -->
+        <button>제출</button>
+        <!-- <button type="button">제출</button> -->
+    </form>
+
+    <h2>JS 유효성 검사</h2>
+    <!-- js form 유효성 검사 -->
+    <!-- onsubmit을 입력해서 js에서 유효성 검사-->
+    <!-- 2) checkForm()안에 this를 넣어준다. -->
+    <form action="/js-form-check" method="post" name="valiForm" onsubmit="return checkForm(this)" target="_blank"> 
+        <input type="text" name="id" minlength="1" placeholder="ID" title="최소1글자">
+        <span>우편물 수령장소</span>
+        <input type="checkbox" name="post" value="자택">자택
+        <input type="checkbox" name="post" value="회사">회사
+        <button>제출</button>
+    </form>
+
+    <script>
+        function checkForm(form){
+            // form을 선택하는 방법 
+            // 1) name으로 폼 선택
+            // const form = document.forms['valiForm'];
+            // 2) this로 보내서 매개변수로 받기
+            console.log(form);
+
+            if(form.id.value == ''){
+                form.id.focus();
+                alert('아이디를 입력해주세요');
+
+                return false; //return false를 추가하면 submit 이벤트가 일어나지 않는다. 제출을 막음
+            }
+            // 각각의 Input요소의 name속성 갑으로 접근
+            // checkbox가 둘다 체크가 안되었을 때
+            // checked (체크 되어있는지 검사)
+            if((form.post[0].checked == false)&& (form.post[1].checked == false)){
+                alert("우편물 수령 장소를 선택해 주세요")
+                return false;
+        }
+    }
+    </script>
+</body>
+</html>

@@ -40,6 +40,17 @@
             });
         }
 
+        // async await 방식
+
+        async function exec(){
+            await display('red');
+            await display('orange');
+            await display('yellow');
+            await display('green');
+            await display('blue');
+        }
+        exec();
+
         // then 이용
 
         // display('red').then(function(){
@@ -52,16 +63,6 @@
         //     return display('blue');
         // })
 
-        // async await 방식
-
-        async function exec(){
-            await display('red');
-            await display('orange');
-            await display('yellow');
-            await display('green');
-            await display('blue');
-        }
-        exec();
     </script>
 </body>
 </html>

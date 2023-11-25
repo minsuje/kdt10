@@ -27,6 +27,11 @@
     <div>
         좋아하는 색깔은 <span><%= userInfo.color %></span> 인가요, 좋은 선택입니다.
     </div>
+
+    <script>
+        const color = '<%= userInfo.color %>'
+        console.log(color);
+    </script>
     <% console.log(title, userInfo) %>
 </body>
 </html>

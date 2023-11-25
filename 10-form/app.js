@@ -4,7 +4,7 @@ const PORT = 8000;
 
 // view엔진을 ejs로 등록
 app.set('view engine', 'ejs');
-app.set('/views', 'views');
+app.set('views', './views');// view 템플릿 파일을 찾을 때 사용할 디렉토리 자정, ejs파일을 넣을 곳
 
 // 미들웨어
 

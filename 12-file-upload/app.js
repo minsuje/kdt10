@@ -43,7 +43,7 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
 // static 등록 => 이미지 경로 접근(프론트)
-app.use('/upload', express.static(__dirname + '/upload'))
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 app.get('/', (req, res)=>{
     res.render('index');

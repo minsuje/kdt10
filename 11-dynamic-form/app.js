@@ -5,8 +5,10 @@ const PORT = 8000;
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-app.use(express.urlencoded({extended : true}));
-app.use(express.json()); 
+app.use(express.urlencoded({extended : true})); //주소 형식으로 데이터를 보내는 방식, 미들웨어
+    // 클라이언트로 부터 받은 http 요청 메시지 형식에서 body데이터를 해석하기 위해, true로 설정하면 qs(querystring)모듈을 사용(node.js 내장)
+
+app.use(express.json()); // json형태의 데이터를 해석
 
 // 실습2
 const userID = 'minsu'
@@ -40,6 +42,7 @@ app.post('/axios', (req, res) =>{
     console.log(req.body);
     // res.send(req.body);
 
+    console.log({name: req.body.name, gender: req.body.gender, msg: 'fet성공'})
     res.send({name: req.body.name, gender: req.body.gender, msg: 'fet성공'});
 })
 

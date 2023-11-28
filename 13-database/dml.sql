@@ -49,3 +49,53 @@ INSERT INTO customer VALUES('jy9987', '강지연', '일본 삿포로', '01012312
 -- NULL : IS NULL, IS NOT NULL
 -- 복합 조건 : AND, OR, NOT
 
+-- where
+-- 비교
+-- 고객 이름이 강해린인 고객의 생일 검색
+select birth from customer where custname='강해린';
+
+-- 고객 이름이 강해린이 아닌 고객의 생일
+select birth from customer where custname!='강해린';
+
+-- 사전순으로 박민지 보다 뒤에 위치한 모든 고객의 정보를 검색
+select * from customer where custname > '박민지';
+
+
+-- 범위
+-- 1995년 이상 2000년 이하 출생 고객 검색
+select * from customer where birth BETWEEN '1995-01-01' AND '2000-12-31';
+select * from customer where birth >= '1995-01-01' AND birth <= '2000-12-31';
+
+-- 집합 
+-- 주소가 서울이거나 런던인 고객 검색
+select * from customer where addr in ('대한민국 서울', '영국 런던');
+select * from customer where addr = '대한민국 서울' or addr = '영국 런던';
+
+-- 주소가 서울이거나 런던이 아닌 고객
+select * from customer where addr not in ('대한민국 서울', '영국 런던');
+
+
+-- 패턴
+-- 주소가 '미국 로스앤젤레스'인 고객을 검색 
+select * from customer where addr like '미국 로스앤젤레스';
+
+-- 주소가 '미국'이 포함되어 있는 고객
+-- %: 0개 이상의 문자열을 의미
+select * from customer where addr like '미국%';
+
+-- 고객 이름에 두번째 글자가 '지'인 고객
+-- _: 임의의 한글자 (하나의) 문자를 의미
+select * from customer where custname like '_지%';
+select * from customer where custname like '_지'; -- 형지
+
+-- 고객 이름에 세번째 글자가 '수'인 고객 검색
+select * from customer where custname like '__수%';
+select * from customer where custname like '%수'; -- 이름이 몇자든, 마지막 글자가 '수'를 의미
+
+-- 복합 조건(AND, OR, NOT)
+-- 주소지가 대한민국이고 2000년생 이후 출생인 고객 검색
+select * from customer where addr like '대한민국%' and birth >= '2000-01-01';
+select * from customer where addr like '미국%' or addr like '영국%';
+
+-- 휴대폰 번호 마지막 자리가 4가 아닌 고객 검색
+select * from customer where phone not like '%4';

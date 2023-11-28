@@ -111,6 +111,70 @@
                 imgElem.classList.add('profile');
             })
         }
+
+    </script>
+
+
+
+<h2>file 전송 실습</h2>
+    <form name="submit">
+    <input type="text" name="id" id="id" placeholder="아이디"><br>
+    <!-- <input type="password" name="pw" id="pw" placeholder="비밀번호"><br>
+    <input type="text" name="nameP" id="nameP" placeholder="이름"><br>
+    <input type="text" name="age" id="age" placeholder="나이"><br> -->
+    <input type="file" name="profile" id="profile"><br><br>
+    <button type="button" onclick="register()">전송</button>
+
+    <!-- 보여줄 이미지 -->
+    <img src="" alt="">
+
+    </form>
+
+<script>
+
+    function register(){
+
+        const form = document.forms['submit'];
+        const formData = new FormData();
+
+        console.log(form.id); //id요소
+        console.log(form.profile); //파일 요소
+
+        console.log(form.profile.files);
+        console.log(form.profile.files[0].name);
+
+        const fileName = form.profile.files[0].name
+        const file = form.profile.files[0];
+        const userId = form.id.value;
+
+        // form.profile.files[0].name = form.id.value;
+        // console.log('변경 후 > ' , form.profile.files[0].name); // 파일 객체에 접근 불가X, 변경 X
+
+        // 확장자
+        // const ext = form.profile.files[0].name.split('.')[1];
+        // console.log('ext >', ext);
+
+        // const newFile = new File([file], `${userId}.${ext}`,{type: file.type});
+
+        // console.log('newFile >', newFile);
+
+        // formData.append('profile', form.profile.files[0]);
+        // formData.append('id', form.id.value);
+
+        formData.append('id', userId);
+        formData.append('profile', file);
+
+        axios({
+            method: 'post',
+            url: '/upload/practice2',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then((res) => {
+            console.log('data :', res.data);
+        })
+    }
     </script>
 </body>
 </html>

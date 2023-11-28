@@ -105,6 +105,41 @@ app.post('/dynamic', uploadDetail.single('dynamicFile'), (req, res) =>{
     res.send({file: req.file, title: req.body.title});
 })
 
+//실습3 ============================================
+
+const uploadPractice = multer({ 
+    storage: multer.diskStorage({
+        destination(req, file, done){
+            console.log('file name > req.body :', req.body); // req.body에 id값이 있다. req.body를 하고 싶으면 append(file)을 맨 마지막에 놓아야 한다.
+            done(null, 'uploads/');
+        },
+        filename(req, file, done){
+            const ext = path.extname(file.originalname); 
+            console.log('ext >', ext);
+
+            done(null, req.body.id + ext);
+        }
+    }),
+    
+});
+
+
+
+app.get('/upload/practice2', (req,res) => {
+    res.render('prac3');
+})
+
+app.post('/upload/prac', uploadPractice.single('profile'),(req,res) =>{
+    console.log(req.body); // body를 통해 id값 확인
+    console.log(req.file);
+    res.send('응답');
+})
+
+app.post('/upload/practice2', uploadPractice.single('profile'), (req,res) => {
+    console.log(req.body);
+    console.log(req.file);
+    res.send('회원가입완료');
+})
 app.listen(PORT, () => {
-    console.log(`${PORT} port is opening!`)
+    console.log(`${PORT} port is opening!`);
 })

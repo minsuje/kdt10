@@ -74,6 +74,23 @@ app.post('/prac2', (req, res) =>{
     // 결과 값을 반환
 })
 
+app.get('/prac3',(req, res) => {
+    res.render('prac3');
+})
+
+app.post('/prac3',(req, res) =>{
+    console.log(req.body);
+    
+    // userID, userPW 라는 변수 값과 클라이언트에서 넘겨받은 값이 일치하는지 검사
+    if(userID === req.body.id && userPW === req.body.pw){
+        res.send({userInfo: req.body, isSuccess: true});
+    } else{
+        res.send({isSuccess: false})
+    }
+    // 결과 값을 반환
+})
+
+
 ////////////////////////
 app.listen(PORT, () =>{
     console.log(`server is opening ${PORT}`);

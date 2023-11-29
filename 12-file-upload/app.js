@@ -52,9 +52,8 @@ app.get('/', (req, res)=>{
 // Single() : 하나의 파일을 업로드
 // upload.single('userfile') <= 미들웨어 , 응답을 보내기 전에 붙인다. 클라이언트 요청이 들어오면,
 // multer 설정(upload)에 따라 파일을 업로드 한 후, req.file 객체를 생성
-
 // single() 인자는 input 태그의 name 값과 일치시켜야 함
-app.post('/upload', uploadDetail.single('userfile') ,(req,res) =>{
+app.post('/upload' ,uploadDetail.single('userfile'),(req,res) =>{
     console.log(req.file);
     console.log(req.body);
     res.send('파일 업로드 완료!');
@@ -107,39 +106,39 @@ app.post('/dynamic', uploadDetail.single('dynamicFile'), (req, res) =>{
 
 //실습3 ============================================
 
-const uploadPractice = multer({ 
-    storage: multer.diskStorage({
-        destination(req, file, done){
-            console.log('file name > req.body :', req.body); // req.body에 id값이 있다. req.body를 하고 싶으면 append(file)을 맨 마지막에 놓아야 한다.
-            done(null, 'uploads/');
-        },
-        filename(req, file, done){
-            const ext = path.extname(file.originalname); 
-            console.log('ext >', ext);
+// const uploadPractice = multer({ 
+//     storage: multer.diskStorage({
+//         destination(req, file, done){
+//             console.log('file name > req.body :', req.body); // req.body에 id값이 있다. req.body를 하고 싶으면 append(file)을 맨 마지막에 놓아야 한다.
+//             done(null, 'uploads/');
+//         },
+//         filename(req, file, done){
+//             const ext = path.extname(file.originalname); 
+//             console.log('ext >', ext);
 
-            done(null, req.body.id + ext);
-        }
-    }),
+//             done(null, req.body.id + ext);
+//         }
+//     }),
     
-});
+// });
 
 
 
-app.get('/upload/practice2', (req,res) => {
-    res.render('prac3');
-})
+// app.get('/upload/practice2', (req,res) => {
+//     res.render('prac3');
+// })
 
-app.post('/upload/prac', uploadPractice.single('profile'),(req,res) =>{
-    console.log(req.body); // body를 통해 id값 확인
-    console.log(req.file);
-    res.send('응답');
-})
+// app.post('/upload/prac', uploadPractice.single('profile'),(req,res) =>{
+//     console.log(req.body); // body를 통해 id값 확인
+//     console.log(req.file);
+//     res.send('응답');
+// })
 
-app.post('/upload/practice2', uploadPractice.single('profile'), (req,res) => {
-    console.log(req.body);
-    console.log(req.file);
-    res.send('회원가입완료');
-})
+// app.post('/upload/practice2', uploadPractice.single('profile'), (req,res) => {
+//     console.log(req.body);
+//     console.log(req.file);
+//     res.send('회원가입완료');
+// })
 app.listen(PORT, () => {
     console.log(`${PORT} port is opening!`);
 })

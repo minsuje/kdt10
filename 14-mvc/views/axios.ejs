@@ -53,7 +53,8 @@
             }).then((res) => {
                 console.log(res.data);
                 if(res.data.isSuccess){
-                    resultBox.textContent = `${responsed.data.userInfo.id}님! 로그인 성공`;
+                    // console.log(responsed.data.userInfo);
+                    resultBox.textContent = `${res.data.userInfo.id}님! 로그인 성공`;
                     resultBox.classList.remove('error');
                     resultBox.classList.add('success');
                 }else{

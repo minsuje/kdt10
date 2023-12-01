@@ -1,0 +1,46 @@
+const tbody = document.querySelector('tbody');
+
+
+// 폼의 등록 버튼 클릭시
+// -- 테이블에 데이터 추가
+function insert(){
+    const form = document.forms['visit'];
+
+    if(form.name.value.length === 0 || form.comment.value.length === 0){
+        alert('이름 또는 방명록 기입해주세요');
+        return;
+    }
+
+    // name 10글자 유효성 검사
+    if(form.name.value.length > 10){
+        alert('이름은 10글자 미만입니다!');
+        return;
+    }
+
+    axios({
+        method : 'post',
+        url: '/visitor',
+        data: {
+            name : form.name.value,
+            comment : form.comment.value
+        }
+        }).then((res) => {
+            console.log(res.data);
+            const data = res.data;
+
+            // 새로고침 안해도 보이게 만들기
+            const html = `
+                    <tr id="tr_${data.id}">
+                    <td>${data.id}</td>
+                    <td>${data.name}</td>
+                    <td>${data.comment}</td>
+                    <td><button type="button">수정</button></td>
+                    <td><button type="button">삭제</button></td>
+            `
+
+            //insertAdjacentHTML: 특정 요소에 html 추가
+            tbody.insertAdjacentHTML('beforeend', html)
+        })
+}
+
+

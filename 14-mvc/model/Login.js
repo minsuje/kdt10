@@ -5,7 +5,7 @@ exports.logins = () =>{
     },
     {
         id: 'yanado',
-        pw: 'english'
+        pw: '4321'
     }
 ]
 }

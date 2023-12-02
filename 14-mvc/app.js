@@ -9,12 +9,12 @@ app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 
 // =============== 2번째 수업 ==================
-const userInfo = {
-    realId: 'helloworld',
-    realPw: '1234',
-    name: '홍길동',
-    age: 20,
-}
+// const userInfo = {
+//     realId: 'helloworld',
+//     realPw: '1234',
+//     name: '홍길동',
+//     age: 20,
+// }
 // =============================================
 
 

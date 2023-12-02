@@ -15,7 +15,6 @@ const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
 
-
 // 애러 처리
 app.get('*', (req,res) => {
     res.render('404');

@@ -19,16 +19,21 @@ const conn = mysql.createConnection({
 
 // cb는 콜백함수이다.
 exports.getVisitors = (cb) => {
+    // query(sql, 콜백함수) or query(sql, values?, 콜백함수)
     conn.query(`SELECT * FROM visitor`, (err, rows) => {
         if(err) throw err;
 
         console.log('Visitor.js: ', rows);
-        cb(rows);
+        cb(rows); // 컨트롤러로 결과값을 넘겨줌
     })
 }
 
 exports.postVisitor = (data, cb) =>{
+    // 우리가 넘겨준 data : req.body
+    // cb 콜백함수
+    // 컨트롤러는 모델과 db연결리 끝났는지 아닌지 모르니까 cb을 사용해서 다 끝나면 아래가 진행된다.
     console.log('postVisitor => ', data);
+
     /**
      * Prepared Statements
      * SQL 쿼리에서 사용자 입력을 안전하게 처리하고 SQL 인젝션 공격을 
@@ -39,6 +44,7 @@ exports.postVisitor = (data, cb) =>{
      * mysql 에서는 ? (물음표) 사용
      * 
      */
+
     const sql = "INSERT INTO visitor (name, comment) VALUE (?, ?)";
 
     const values = [data.name, data.comment]; // 하나여도 배열로 감싸서 보내야 한다.
@@ -50,7 +56,7 @@ exports.postVisitor = (data, cb) =>{
 
         // insertId 값을 넘겨준다.
 
-        cb(rows.insertId);
+        cb(rows.insertId); // 콜백함수 호출, 매개변수 3 이라는 값
     })
 }
 
@@ -58,3 +64,38 @@ exports.get = () => {
     conn.query(`SELECT * FROM visitor `)
 }
 
+exports.getVisitor = (id, cb) => {
+    const sql = `SELECT * FROM visitor where id = ?`;
+    conn.query(sql, [id], (err,rows) => {
+        if(err) throw err;
+
+        console.log('getVisitor Visitor.js > ' , rows);
+                // [{ id: 1 ~~~}]
+
+        cb(rows[0]);
+    })
+}
+
+exports.patchVisitor = (data, cb) =>{
+    const sql = 'UPDATE visitor SET name = ?, comment = ? WHERE id = ?';
+    const values = [data.name, data.comment, data.id];
+
+    conn.query(sql, values, (err, rows) =>{
+        if(err) throw err;
+
+        console.log('patchVisitor Visitor.js > ', rows);
+        cb(rows);
+    })
+}
+
+exports.deleteVisitor =(id, cb) =>{
+    console.log(id);
+    const sql = 'DELETE FROM visitor WHERE id = ?';
+
+    conn.query(sql, [id], (err,rows)=>{
+        if(err) throw err;
+
+        console.log('deleteVisitor Visitor.js > ', rows);
+        cb(rows);
+    })
+}

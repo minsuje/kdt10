@@ -15,6 +15,10 @@ router.post('/singup', controller.singup_new);
 
 // GET /user/singin => post
 router.get('/singin', controller.singin);
+// POST /user/singin
+router.post('/singin', controller.sigin_check);
+
+
 // GET /user/profile
 router.get('/profile', controller.profile);
 

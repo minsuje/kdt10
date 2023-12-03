@@ -27,6 +27,18 @@ exports.singup_new = (req,res) => {
 exports.singin = (req,res) => {
     res.render('singin');
 }
+exports.sigin_check = (req, res) => {
+    console.log('req.body >' , req.body)
+    const{id,pw} = req.body
+    User.postCheck(req.body, (result) => {
+        if(result !== req.body){
+            alert('로그인 실패');
+            return;
+        }else{
+            res.send({id:id, pw:pw});
+        }        
+    })
+}
 
 // 프로필 수정
 exports.profile = (req,res) => {

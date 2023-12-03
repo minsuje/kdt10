@@ -24,7 +24,8 @@ function login(){
         data: {
             id: form.id.value,
             pw: form.pw.value,
-            name: form.name.value
         }
+    }).then((res)=>{
+        console.log('로그인 함수 리턴 값 >',res.data)
     })
 }

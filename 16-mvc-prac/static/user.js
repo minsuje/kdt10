@@ -1,3 +1,4 @@
+// 회원가입 버튼
 function singUP(){
     const form = document.forms['newUser'];
 
@@ -51,6 +52,8 @@ function singUP(){
 //     })
 // }
 
+
+// 로그인 버튼
 async function login(){
     const form = document.forms['logIn'];
     if(!form.checkValidity()){
@@ -87,6 +90,7 @@ async function login(){
     }
 }
 
+// 회원정보 변경
 function Edit(){
     const form = document.forms['PROFILE'];
 
@@ -108,6 +112,8 @@ function Edit(){
     })
 }
 
+
+//아이디 삭제
 function Delete(){
     const form = document.forms['PROFILE'];
 

@@ -58,7 +58,7 @@ exports.profileEdit = (req,res) => {
     User.profileChange(req.body, (result) => {
         console.log('바꿀 정보 > ', req.body);
         console.log('화원 정보 수정 > ', result);
-        res.render('수정 성공');
+        res.send('수정 성공');
     })
 }
 

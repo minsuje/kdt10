@@ -17,8 +17,13 @@ exports.singup_new = (req,res) => {
     const{id, pw, name} = req.body;
 
     User.postDB(req.body, (result) => {
-        // console.log('psotDB, Cuser.js result >>',result);
-        res.send({id: id, pw: pw, name: name});
+        console.log('psotDB, Cuser.js result >>',result);
+        if(result.error){
+            res.send({isLogin:false})
+        }else{
+            res.send({isLogin:true, id: id, pw: pw, name: name});
+        }
+        // res.send({id: id, pw: pw, name: name});
     })
 }
 
@@ -67,6 +72,5 @@ exports.profileDelete = (req, res) => {
 
     User.delete_profile(req.body.id, (result) => {
         res.send({deletedId : req.body});
-
     })
 }

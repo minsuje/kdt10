@@ -16,9 +16,15 @@ function singUP(){
         }
     }).then((res) => {
         console.log('res.data >> :', res.data);
+        const {data} = res;
 
-        alert('회원가입 성공');
-        document.location.href = '/user/singin';
+        if(!data.isLogin){
+            alert('이미 존재하는 회원입니다! 아이디를 확인해주세요 :)');
+            form.reset(); // form 초기화
+        }else{
+            alert('회원가입 성공');
+            document.location.href = '/user/singin';
+        }
     })
 }
 

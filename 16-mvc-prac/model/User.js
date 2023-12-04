@@ -13,14 +13,34 @@ exports.postDB = (data,cb) =>{
 
     const sql = "INSERT INTO user (id, pw, name) value( ?, ?, ?)";
     const values = [data.id, data.pw, data.name];
+    
+    // id 중복 체크
+    const sql2 = "SELECT * FROM user where id = ?";
+    const values2 = [data.id];
 
-    conn.query(sql,values, (err, rows) => {
+    conn.query(sql2,values2,(err,rows) =>{
         if(err) throw err;
 
-        console.log('User.js (데이터베이스) > ' ,rows);
-
-        cb(rows);
+        console.log(rows);
+        if(rows.length > 0 ){
+            cb({error: "이미 존재하는 ID입니다. 값을 다시 입력해주세요"});
+        }else{
+            conn.query(sql,values, (err, rows) => {
+                if(err) throw err;
+        
+                console.log('User.js (데이터베이스) > ' ,rows);
+        
+                cb(rows);
+            })
+        }
     })
+    // conn.query(sql,values, (err, rows) => {
+    //     if(err) throw err;
+
+    //     console.log('User.js (데이터베이스) > ' ,rows);
+
+    //     cb(rows);
+    // })
 }
 
 // ID와 PW 데이터베이스 체크

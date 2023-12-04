@@ -19,7 +19,12 @@ router.get('/singin', controller.singin);
 router.post('/singin', controller.sigin_check);
 
 
-// GET /user/profile
-router.get('/profile', controller.profile);
+// POST /user/profile
+router.post('/profile', controller.profile);
+// PATCH /user/profile/edit
+router.patch('/profile/edit', controller.profileEdit);
+// DELETE /user/profile/delete
+router.delete('/profile/delete', controller.profileDelete);
+
 
 module.exports = router;

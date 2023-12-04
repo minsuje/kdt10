@@ -31,10 +31,37 @@ exports.postCheck = (data,cb) => {
     conn.query(sql,values, (err, rows) => {
         if(err) throw err;
         console.log('아이디와 비밀번호는 ? > ', rows);
-        if(rows !== values){
-            alert('로그인 실패')
-        }else{
-            cb(rows);
-        }
+        cb(rows);
+    })
+}
+
+exports.get_user = (data, cb) => {
+    const sql = "SELECT * FROM user WHERE id = ?";
+    const value = [data];
+    conn.query(sql,value,(err,rows) => {
+        if(err) throw err;
+        console.log('profile rows >>>', rows);
+        cb(rows)
+    })
+}
+
+exports.profileChange = (data, cb) => {
+    const sql = "UPDATE user SET pw = ?, name = ? WHERE id = ?";
+    const value = [data.pw, data.name, data.id];
+    conn.query(sql, value, (err, rows) => {
+        if(err) throw err;
+        console.log('New Profile >> ', rows);
+        cb(rows);
+    })
+}
+
+// 회원 탈퇴
+exports.delete_profile = (id, cb) =>{
+    const sql = "Delete FROM user where id = ? ";
+    conn.query(sql, [id], (err,rows) => {
+        if(err) throw err;
+
+        console.log(rows);
+        cb(rows)
     })
 }

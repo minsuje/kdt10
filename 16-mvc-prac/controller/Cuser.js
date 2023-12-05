@@ -48,7 +48,7 @@ exports.sigin_check = (req, res) => {
     })
 }
 
-// 프로필 수정
+// 프로필 수정(id값 가져오기)
 exports.profile = (req,res) => {
     console.log(req.body);
     User.get_user(req.body.id, (result) =>{
@@ -67,6 +67,7 @@ exports.profileEdit = (req,res) => {
     })
 }
 
+// 프로필 삭제
 exports.profileDelete = (req, res) => {
     console.log(req.body);
 

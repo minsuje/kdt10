@@ -1,7 +1,7 @@
 // 전체 정보가 index에 있다.
 
 const Sequelize = require('sequelize');
-//[]을 붙여줘서 원하는 데이터베이스?를 가져온다
+//[]을 붙여줘서 원하는 데이터베이스?(개발환경?)를 가져온다
 const config = require(__dirname + '/../config/config.json')['development'];
 
 console.log('config >',config);
@@ -21,10 +21,12 @@ const sequelize = new Sequelize(
     config.password,
     config
 )
+// console.log(sequelize);
 
 // 데이터 베이스에 접근할 때 사용하는 orm을 만들기 위해
 
 db.sequelize = sequelize;
+
 db.Sequelize = Sequelize;
 
 db.Visitor = require('./Visitor')(sequelize, Sequelize);

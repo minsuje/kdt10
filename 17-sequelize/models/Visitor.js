@@ -27,7 +27,7 @@ const Visitor = (Sequelize, DataTypes) => {
         }, // param2 : 칼럼 정의
         {
             tableName: 'visitor2', // 실제 DB 테이블 이름 명시
-            freezeTabaleName: true, // 첫번째 인자로 넘겨준 모델 이름을 그대로 테이블 이름으로 고정
+            freezeTableName: true, // 첫번째 인자로 넘겨준 모델 이름을 그대로 테이블 이름으로 고정
             //시퀄라이즈는 기본적으로 테이블 이름을 모델 + s로 가져간다.
             // charset, collate 값이 있는데 db정의할 때 한글 인코딩 가능하도록 만들었기 때문에 따로 설정 필요 X
 
@@ -35,7 +35,7 @@ const Visitor = (Sequelize, DataTypes) => {
             // -- 데이터가 추가되고 수정된 시간을 자동으로 컬럼으로 만들어서 기록하는 옵션
 
 
-        }// param3 : 모델 옵샨 선택
+        }// param3 : 모델 옵션 선택
     )
     return model;
 }

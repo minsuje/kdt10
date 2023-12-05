@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script defer src="/static/user.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <h1>로그인</h1>
+    <form name="logIn">
+        <input type="text" id="id" name="id" required>
+        <label for="">ID</label><br>
+        <input type="password" id="pw" name="pw" required>
+        <label for="">Password</label><br>
+        <button type="button" onclick="login()">Login</button><br>
+    </form>
+
+
+    <!-- 로그인 버튼 클릭 시(성공), profile.ejs에서 특정 유저 정보를 보여줘야 하기 때문에 id정보를 value에 저장해서 넘겨줌 -->
+    <!-- 로그인 성공 시, 프로필 페이지로 이동 -->
+    <form name="hidden-form" action="/user/profile" method="post">
+        <!-- type: hidden 안보임 -->
+        <input type="hidden" name="id" />
+    </form>
+    <a href="/user/singup">Register</a>
+</body>
+
+</html>

@@ -13,8 +13,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 // // 라우터 분리
-// const indexRouter = require('./routes/index');
-// app.use('/', indexRouter);
+const indexRouter = require('./routes/index');
+app.use('/', indexRouter);
 
 
 // 애러 처리

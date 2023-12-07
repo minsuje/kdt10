@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+  <h1>실습 Session 연습</h1>
+  <p>Home</p>
+
+  <!-- if문으로 isLogin이라는 변수를 통해서 로그인 여부 확인 -->
+  <% if(isLogin) { %>
+    <form action="/logout" method="get">
+      <h3>
+        <%= user %>님 환영합니다.
+      </h3>
+
+      <button id="logout">로그아웃</button>
+    </form>
+  <% }else { %>
+    <form name="inputs">
+      <input type="text" id="id" placeholder="ID"><br>
+      <input type="password" id="pw" placeholder="PW"><br>
+    </form>
+      <button type="button" id="logined" onclick="logIn()">로그인</button>
+      <button type="button" id="register" onclick="new_user()">회원가입</button>
+  <% } %>
+
+  <div>
+
+  </div>
+
+  <!-- <div class="btn"> -->
+    <!-- <button type="button" id="register" onclick="new_user()">회원가입</button> -->
+    <!-- <button type="button" id="logined" onclick="logIn()">로그인</button> -->
+  <!-- </div> -->
+
+
+  <script>
+    // function new_user() {
+    //   const form = document.forms['inputs'];
+
+    //   axios({
+    //     method: 'post',
+    //     url: '/login',
+    //     data: {
+    //       id: form.id.value,
+    //       pw: form.pw.value
+    //     }
+    //   }).then((res) => {
+    //     res.send('회원가입 성공');
+    //     document.location.href = '/login';
+    //   })
+    // }
+
+    function logIn(){
+      const form = document.forms['inputs'];
+
+      axios({
+        method : 'post',
+        url: '/login',
+        data : {
+          id: form.id.value,
+          pw: form.pw.value
+        }
+      }).then((res) => {
+        document.location.href = '/login'
+      })
+    }
+  </script>
+
+  
+</body>
+
+</html>

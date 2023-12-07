@@ -20,12 +20,6 @@
   <!-- axios cdn -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <script>
-    function modal() {
-      ("#exampleModal").modal("show")
-    };
-  </script>
-
 </head>
 
 <body>
@@ -71,7 +65,7 @@
 
     // const myModal = new bootstrap.Modal("#exampleModal");
     const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
-    myModal.show();
+    // myModal.show();
     // const modalToggle = document.getElementById('#exampleModal');
     // myModal.show(modalToggle);
 
@@ -84,15 +78,46 @@
     // checkbox.checked === false (미체크시); 'hide'
 
     // TODO: popup 쿠키 값이 ''이라면, 모달 보여주기
+    const popup = '<%= popup %>'
+    if(!popup){
+      myModal.show();
+    }
+
+    // if(popup === ''){
+    //   myModal.show()
+    // }
 
     // TODO: 모달 닫기 버튼 클릭 함수 완성
     function closeModal() {
       // 1. 체크 박스가 체크되어 있다면 (오늘 하루 보지 않음을 선택했다면)
       // POST /setCookie 요청 보내기 (back에서 popup 쿠키 설정하기)
 
+      // 1)
+      // if(document.getElementById('cookie').checked){
+      //   axios({
+      //     url: '/setCookie',
+      //     method: 'post'
+      //   }).then((res) => {
+      //     console.log('res.data > ', res.data);
+      //   })
+      // }
+      // myModal.hide();
+
+      const check = document.getElementById('cookie');
+      axios({
+        method: 'post',
+        url: '/setCookie',
+        data : {value: check.checked}
+      })
+
       // 2. js로 모달 닫기 수행 (위 참고 링크 확인)
+      myModal.hide();
     }
   </script>
+
+<a href="/clearCookie">쿠키 제거하기</a>
+<a href="/login">로그인 세션 실습</a>
+
 </body>
 
 </html>

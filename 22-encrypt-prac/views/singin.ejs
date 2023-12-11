@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
+
 <body>
     <h1>로그인</h1>
     <form name="loginUser">
@@ -20,14 +22,17 @@
     <a href="/">Home</a>
 
     <script>
-        async function login(){
+        async function login() {
             const form = document.forms['loginUser'];
-            console.log('clear1');
-            try{
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            try {
                 const res = await axios({
                     method: 'post',
                     url: '/singin',
-                    data:{
+                    data: {
                         userid: form.userId.value,
                         pw: form.userPw.value
                     },
@@ -35,19 +40,20 @@
                 console.log(res.data);
                 console.log(res.data.result);
                 console.log(res.data.data);
-                if(res.data.result){
+                if (res.data.result) {
                     alert(`${res.data.data.name}님 로그인 성공`);
                     document.location.href = '/';
-                }else{
+                } else {
                     alert(`${res.data.message}`);
                     document.location.reload();
                 }
             }
-            catch(err){
+            catch (err) {
                 console.log(err)
             }
         }
     </script>
 
 </body>
+
 </html>

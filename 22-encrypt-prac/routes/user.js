@@ -13,5 +13,9 @@ router.post('/singup', controller.postNewUser);
 router.get('/singin', controller.login_user);
 router.post('/singin', controller.postLogin);
 
+router.get('/profile', controller.getProfile);
+router.patch('/profile/edit', controller.patchEdit);
+router.delete('/profile/destroy', controller.delete);
+
 
 module.exports = router;

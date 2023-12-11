@@ -3,6 +3,9 @@ const User = models.User;
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const saltRounds = 10;
+const session = require('express-session');
+
+
 
 function hashPW(password) {
     // 해쉬된 값 반환
@@ -16,7 +19,13 @@ function comparePW(password, hashedPW){
 
 
 exports.index = (req, res) => {
-    res.render('index');
+    const user = req.session.user;
+    console.log('req.session.user >>>>> ', user);
+    if(user !== undefined){
+        res.render('index', {isLogin:true, user: user})
+    } else{
+        res.render('index', {isLogin:false})
+    }
 }
 
 exports.user_new = (req, res) => {
@@ -57,10 +66,12 @@ exports.postLogin = async (req,res) => {
         
         if(user){
             // 입력된 비밀번호를 암호화 하여 기존 데이터와 비교
-            const result = await bcrypt.compare(pw, user.pw); // true or false
+            const result = await comparePW(pw, user.pw);
+            // const result = await bcrypt.compare(pw, user.pw); // true or false
 
             // 일치
             if(result){
+                req.session.user = user.userid;
                 res.send({result:true, data: user});
             }else{
                 //불일치
@@ -75,3 +86,60 @@ exports.postLogin = async (req,res) => {
         console.log(err);
     }
 }
+
+exports.getProfile = async (req,res) =>{
+    try{
+        // console.log("req.query >>>>> ",req.query)
+        // res.render('profile');
+        const user = req.session.user
+        const result = await User.findOne({
+            where: {
+                userid: user
+            }
+        })
+        if(result){
+            res.render('profile', {data: result})
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+// 수정
+exports.patchEdit = async (req, res) => {
+    try{
+        const hashedPW = hashPW(req.body.pw);
+        User.update({
+            pw: hashedPW,
+            name: req.body.name
+        },{
+            where: {userid : req.body.userid }
+        });
+        res.send({result:true});
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+// 정보 삭제, 세션 종료
+exports.delete = async (req,res) => {
+    console.log('전달 받은 값',req.body);
+    try{
+        const user = User.destroy(
+            {
+                where: {id: req.body.id}
+            }
+        )
+        if(user){
+            req.session.destroy();
+            res.send({result:true});
+        }
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+

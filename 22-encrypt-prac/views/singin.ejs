@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1>로그인</h1>
+    <form name="loginUser">
+        <input type="text" id="userId" placeholder="ID" required><br>
+        <input type="password" id="userPw" placeholder="PW" required><br>
+
+        <button type="button" onclick="login()">로그인</button><br>
+    </form>
+    <a href="/singup">회원가입 페이지</a>
+    <a href="/">Home</a>
+
+    <script>
+        async function login(){
+            const form = document.forms['loginUser'];
+            console.log('clear1');
+            try{
+                const res = await axios({
+                    method: 'post',
+                    url: '/singin',
+                    data:{
+                        userid: form.userId.value,
+                        pw: form.userPw.value
+                    },
+                });
+                console.log(res.data);
+                console.log(res.data.result);
+                console.log(res.data.data);
+                if(res.data.result){
+                    alert(`${res.data.data.name}님 로그인 성공`);
+                    document.location.href = '/';
+                }else{
+                    alert(`${res.data.message}`);
+                    document.location.reload();
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 페이지</title>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form name="regist">
+        <input type="text" id="userId" placeholder="ID" required><br>
+        <input type="password" id="userPw" placeholder="PW" required><br>
+        <input type="text" id="userName" placeholder="NAME" required>
+
+        <button type="button" onclick="newUser()">회원가입</button><br>
+    </form>
+    <a href="/user/singin">Login</a>
+    <a href="/user">Home</a>
+
+    <script>
+        async function newUser(){
+            const form = document.forms['regist'];
+
+            try{
+                const res = await axios({
+                    method: 'post',
+                    url: '/singup',
+                    data: {
+                        pw: form.userPw.value,
+                        name: form.userName.value,
+                        userid: form.userId.value
+                    }
+                })
+                console.log('res.data >>>> ',res.data); // null
+            }
+            catch(err){
+                console.log('Error!', err)
+            }
+        }
+    </script>
+</body>
+</html>

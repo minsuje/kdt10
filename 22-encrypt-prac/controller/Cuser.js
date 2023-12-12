@@ -4,6 +4,10 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const saltRounds = 10;
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
+const { route } = require('../routes/user');
+
+const SECRETKEY = process.env.SECRETKEY
 
 
 
@@ -71,8 +75,9 @@ exports.postLogin = async (req,res) => {
 
             // 일치
             if(result){
+                const token = jwt.sign({userid: userid}, SECRETKEY);
                 req.session.user = user.userid;
-                res.send({result:true, data: user});
+                res.send({result:true, data: user, token});
             }else{
                 //불일치
                 res.send({result:false, message: "비밀번호가 틀렸습니다."})
@@ -142,4 +147,28 @@ exports.delete = async (req,res) => {
     }
 }
 
+exports.getCheck = (req,res) => {
+    res.render('usercheck');
+}
 
+exports.token = (req,res) =>{
+    console.log('token > ', req.headers.authorization);
+    if(req.headers.authorization){
+        const authorization = req.headers.authorization.split(' ');
+        console.log(authorization);
+        const token = authorization[1];
+
+        try{
+            //검증
+            const result = jwt.verify(token, SECRETKEY);
+            console.log('result > ', result);
+
+            if(result.id === req.session.user){
+                res.sned({isVerify:true, name: user})
+            }
+        }
+        catch{
+
+        }
+    }
+}

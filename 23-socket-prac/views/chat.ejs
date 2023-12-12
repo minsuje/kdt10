@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat program</title>
+    <!-- cdn -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        /* [실습 2] 채팅창 UI */
+
+        .chat-list {
+            background-color: rgba(255, 192, 203, 0.875);
+            width: 70vw;
+            height: 90vh;
+            padding: 10px;
+            overflow-y: auto;
+            margin-left: 10vw;
+        }
+
+        .chat-list div {
+            margin-top: 3px;
+        }
+
+        .chat-list div div {
+            display: inline-block;
+            padding: 3px;
+        }
+
+        .my-chat {
+            text-align: right;
+        }
+
+        .my-chat div {
+            background-color: rgba(255, 255, 0, 0.779);
+        }
+
+        .other-chat div {
+            background-color: white;
+        }
+        .textBox{
+            margin-left: 10vw;
+        }
+
+        /* 실습 3 채팅창 입장 안내 문구 */
+        .notice {
+            text-align: center;
+            font-size: 12px;
+            color: #005397;
+        }
+
+        /* rgba(255, 192, 203, 0.875); */
+        /* background-color: rgba(255, 255, 0, 0.779);
+ */
+    </style>
+</head>
+
+<body>
+    <main class="chat-box">
+        <div class="chat-list">
+            <!-- 임시 대화 데이터 -->
+            <div class="my-chat">
+                <div>user1 : msg1</div>
+            </div>
+            <div class="other-chat">
+                <div>user2 : msg2</div>
+            </div>
+        </div>
+
+        <form class="textBox">
+            <input type="text" id="message">
+            <button type="button">전송</button>
+        </form>
+
+    </main>
+
+    <script>
+        const socket = io.connect();
+
+        const chatForm = document.getElementById('send');
+        const message = document.getElementById('message');
+        const div = document.querySelector('chatBox');
+
+
+        socket.on('connect', () => {
+            console.log('클라이언트 연결 완료', socket.id);
+        })
+
+        function sending() {
+            socket.emit('forServer', `${message}`);
+        }
+
+
+
+        // 실습3
+        socket.on('notice', (msg) => {
+            document.querySelector('.chat-list').insertAdjacentHTML('beforeend', `<div class='notice'>${msg}</div>`);
+        })
+    </script>
+</body>
+
+</html>

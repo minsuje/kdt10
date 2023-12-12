@@ -17,5 +17,9 @@ router.get('/profile', controller.getProfile);
 router.patch('/profile/edit', controller.patchEdit);
 router.delete('/profile/destroy', controller.delete);
 
+router.get('/usercheck', controller.getCheck);
+router.post('/token', controller.token);
+
+
 
 module.exports = router;

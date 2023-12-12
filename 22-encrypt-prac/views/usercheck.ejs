@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>token</title>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1>Token</h1>
+    <div id="info"></div>
+    <script>
+        (
+            async function(){
+                const token = localStorage.getItem('login');
+                const infoBox = document.getElementById('info');
+                let data = '';
+
+                try{
+                    if(!token){
+                        data = '<a href="/singin"">로그인</a>'
+                    } else{
+                        // 토큰 o
+                        const res = await axios({
+                            method: 'post',
+                            url: '/token',
+                            headers:{
+                                Authorization: `Bearer ${token}`
+                            }
+                        })
+                        console.log(res.data);
+
+                        if(res.data.isVerify){
+                            data =`
+                                <p>${res.data.name}님 어서오세요!</p><br>
+                                <p>당신의 아이디는${res.data.userid}입니다</p>
+                                <button type='button' onclick='logout()'> 로그아웃</button>
+                            `
+                        }else{
+                            alert(res.data.message);
+                        }
+                    }
+                    infoBox.innerHTML=data;
+                }catch(err){
+                    console.log('err', err);
+                }
+            }
+        )();
+
+        function logout(){
+            localStorage.clear();
+            document.location.reload();
+        }
+    </script>
+</body>
+</html>

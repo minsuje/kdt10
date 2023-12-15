@@ -24,12 +24,13 @@
       <button id="logout">로그아웃</button>
     </form>
   <% }else { %>
-    <form name="inputs">
+    <!-- <form name="inputs">
       <input type="text" id="id" placeholder="ID"><br>
       <input type="password" id="pw" placeholder="PW"><br>
-    </form>
-      <button type="button" id="logined" onclick="logIn()">로그인</button>
-      <button type="button" id="register" onclick="new_user()">회원가입</button>
+    </form> -->
+      <!-- <button type="button" id="logined" onclick="logIn()">로그인</button> -->
+      <!-- <button type="button" id="register" onclick="new_user()">회원가입</button> -->
+      <a href="/login">로그인</a>
   <% } %>
 
   <div>
@@ -59,20 +60,20 @@
     //   })
     // }
 
-    function logIn(){
-      const form = document.forms['inputs'];
+    // function logIn(){
+    //   const form = document.forms['inputs'];
 
-      axios({
-        method : 'post',
-        url: '/login',
-        data : {
-          id: form.id.value,
-          pw: form.pw.value
-        }
-      }).then((res) => {
-        document.location.href = '/login'
-      })
-    }
+    //   axios({
+    //     method : 'post',
+    //     url: '/login',
+    //     data : {
+    //       id: form.id.value,
+    //       pw: form.pw.value
+    //     }
+    //   }).then((res) => {
+    //     document.location.href = '/login'
+    //   })
+    // }
   </script>
 
   

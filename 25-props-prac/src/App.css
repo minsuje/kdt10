@@ -2,6 +2,24 @@
   text-align: center;
 }
 
+.bookName {
+  color: orange;
+}
+.bookCover {
+  background-color: palegoldenrod;
+  text-align: center;
+  width: 500px;
+  height: 500px;
+}
+
+.text {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 40px;
+  padding-bottom: 20px;
+}
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +53,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

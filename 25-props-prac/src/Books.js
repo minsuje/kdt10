@@ -1,31 +1,22 @@
-import React, { Book } from "react";
-import "./Books.css";
+import React, { Component } from "react";
+import "./App.css";
 
-class Books extends Book {
+class Books extends Component {
   render() {
     const { title, author, price, type } = this.props;
     return (
       <div className="bookCover">
         <h1 className="bookName">이번주 베스트 셀러</h1>
         <img
-          src="https://image.yes24.com/images/chyes24/froala/0/46497/48163.jpg"
-          alt=""
+          style={{ width: "140px", height: "200px" }}
+          src="https://image.yes24.com/goods/93513663/XL"
         />
-        <h2>
-          <b>{title}</b>
-        </h2>
-        ,
-        <p>
-          <b>{author}</b>
-        </p>
-        <br />,
-        <p>
-          <b>{price}</b>
-        </p>
-        <br />,
-        <p>
-          <b>{type}</b>
-        </p>
+        <h1>
+          <div>{title}</div>
+        </h1>
+        <div className="text">저자 : {author}</div>
+        <div className="text">가격 : {price}</div>
+        <div className="text">장르 : {type}</div>
       </div>
     );
   }

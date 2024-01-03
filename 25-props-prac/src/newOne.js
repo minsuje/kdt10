@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class NewOne extends Component {
   render() {
@@ -15,4 +16,9 @@ class NewOne extends Component {
 NewOne.defaultProps = {
   text: "디폴트 texet props 입니다.",
 };
+
+NewOne.propTypes = {
+  text: PropTypes.string,
+};
+
 export default NewOne;

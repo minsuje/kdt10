@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 
 export default function HandleEx2() {
-  const [color, setColor] = useState("black");
-  const red = (color) => {
-    setColor(color);
-  };
-  const blue = (color) => {
-    setColor(color);
-  };
+  const [font, setFont] = useState({ color: "black", text: "검정색" });
 
   // obj : e.target
 
+  const changeFont = (color, obj) => {
+    setFont({ color: color, text: obj.innerText });
+  };
   return (
     <div>
-      <h1 style={{ color: color }}>검정색 글씨</h1>
-      <button onClick={() => red("red")}>빨간색</button>
-      <button onClick={() => blue("blue")}>파란색</button>
+      <h1 style={{ color: font.color }}>{font.text}</h1>
+      <button onClick={(e) => changeFont("red", e.target)}>빨간색</button>
+      <button onClick={(e) => changeFont("blue", e.target)}>파란색</button>
     </div>
   );
 }

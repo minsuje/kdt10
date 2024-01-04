@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
 export default function Show() {
-  const [show, setShow] = useState(ture);
-  const [none, setNone] = useState("none");
+  const [show, setShow] = useState(true);
 
-  const view = (show) => {
+  const view = () => {
     // true -> false
     // false -> true
     setShow(!show);
@@ -14,10 +13,8 @@ export default function Show() {
 
   return (
     <div>
-      <button style={{ display: show }} onClick={view}>
-        사라져라
-      </button>
-      <h1 style={{ display: show }}>안녕하세요</h1>
+      <button onClick={view}>{show ? "사라져라" : "보여라"}</button>
+      {show && <h1>안녕하세요</h1>}
     </div>
   );
 }

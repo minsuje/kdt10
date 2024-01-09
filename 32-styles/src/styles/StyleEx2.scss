@@ -1,0 +1,27 @@
+@import './StyleColor';
+
+.pink {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    @include circle(pink, 3s, infinite);
+    @include keyframes(pinkd, 10px);
+    animation-name: pinkd;
+    position: relative;
+}
+
+.yellow {
+    @extend .pink;
+    @include circle(yellow, 3s, infinite);
+    @include keyframes(yellowd, 20px);
+    animation-name: yellowd;
+    position: relative;
+}
+
+.green {
+    @extend .pink;
+    @include circle(green, 3s, infinite);
+    @include keyframes(greend, 30px);
+    animation-name: greend;
+    position: relative;
+}

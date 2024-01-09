@@ -1,0 +1,31 @@
+@mixin circle($color, $duration, $count) {
+    background-color: $color;
+    animation-duration: $duration;
+    animation-iteration-count: $count;
+    animation-timing-function: linear;
+}
+
+@mixin keyframes($animation, $move) {
+    @keyframes #{$animation} {
+        0% {
+            top: 0px;
+            left: 0px;
+        }
+        25% {
+            top: 0px;
+            left: $move;
+        }
+        50% {
+            top: $move;
+            left: $move;
+        }
+        75% {
+            top: $move;
+            left: 0px;
+        }
+        100% {
+            top: 0px;
+            left: 0px;
+        }
+    }
+}

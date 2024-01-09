@@ -1,6 +1,8 @@
 // import CssModuleComponent from './CssModuleComponent';
 // import SassComponent from './SassComponent';
-import StyleEx from './StyleEx';
+// import StyleEx from './StyleEx';
+import StyleEx2 from './StyleEx2';
+import StyledComponents from './StyledComponents';
 import './styles/App.css';
 
 function App() {
@@ -14,7 +16,11 @@ function App() {
             <h2>SASS</h2>
             <SassComponent /> */}
             <hr />
-            <StyleEx />
+            {/* <StyleEx /> */}
+            <hr />
+            <StyleEx2 />
+            <hr />
+            <StyledComponents />
         </div>
     );
 }

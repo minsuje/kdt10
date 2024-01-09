@@ -20,7 +20,7 @@
 
 .larva .body .eye.eye-white .eye.eye-black {
     top: 10px;
-    left: 10px;
+    left: 0px;
     width: 20px;
     height: 20px;
     background-color: black;
@@ -36,32 +36,34 @@
 }
 .larva .body.body1 {
     top: 100px;
-    left: 100px;
+    left: 200px;
     background-color: rgb(0, 0, 166);
 }
 .larva .body.body2 {
     top: 150px;
-    left: 160px;
+    left: 260px;
     background-color: rgb(36, 61, 206);
 }
 .larva .body.body3 {
     top: 190px;
-    left: 200px;
+    left: 300px;
     background-color: rgb(52, 118, 231);
 }
 .larva .body.body4 {
     top: 240px;
-    left: 220px;
+    left: 320px;
     background-color: rgb(47, 146, 233);
 }
 .larva .body.body5 {
     top: 280px;
-    left: 280px;
+    left: 380px;
     background-color: rgb(140, 191, 253);
     z-index: 10;
 }
 .larva .grass {
     position: absolute;
-    top: 260px;
-    left: 0;
+    top: 160px;
+    left: -39px;
+    width: 700px;
+    height: 300px;
 }
